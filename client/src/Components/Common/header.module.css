@@ -1,0 +1,4 @@
+.appBar {
+	background: rgb(44, 59, 80);
+	background: radial-gradient(circle, rgba(44, 59, 80, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
