@@ -8,9 +8,9 @@ class App extends Component {
 		return (
 			<Fragment>
 				<Header logo={Logo} />
-				<LeftSidenav />
+				{/* <LeftSidenav />
 				<RightSidenav />
-				<Footer />
+				<Footer /> */}
 			</Fragment>
 		);
 	}

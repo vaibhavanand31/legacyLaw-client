@@ -1,0 +1,28 @@
+.appBar {
+	background: rgb(44, 59, 80);
+	background: radial-gradient(circle, rgba(44, 59, 80, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+.menuOverride {
+	position: relative;
+}
+.containerMenuOverride {
+	display: none;
+	position: absolute;
+	z-index: 1;
+}
+.bulletinImg {
+	width: 200px;
+	height: 180px;
+}
+.contactUsIconButton {
+	background-color: #0d4879;
+	color: white;
+}
+.callIconButton {
+	background-color: #0d4879;
+	color: white;
+}
+.appointmentIconButton {
+	background-color: #0d4879;
+	color: white;
+}
