@@ -2,10 +2,21 @@ import React, { Component } from 'react';
 import './App.css';
 import Logo from './logo_transparent.png';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Components/Home/Home';
-import AboutUs from './Components/AboutUs/ServiceAddress';
-import NotFound from './Components/NotFound/NotFound';
-import Header from './Components/Common/Header/Header';
+import {
+	Home,
+	ServiceAddress,
+	NotFound,
+	Header,
+	News,
+	Events,
+	Articles,
+	Appointment,
+	ContactUs,
+	Testimonial,
+	EmploymentApplication,
+	Staff,
+	PracticingArea
+} from './Components';
 
 class App extends Component {
 	render() {
@@ -18,7 +29,43 @@ class App extends Component {
 					</Route>
 					<Route path="/about-us" exact>
 						<Header logo={Logo} />
-						<AboutUs />
+						<ServiceAddress />
+					</Route>
+					<Route path="/bulletin/news" exact>
+						<Header logo={Logo} />
+						<News />
+					</Route>
+					<Route path="/bulletin/events" exact>
+						<Header logo={Logo} />
+						<Events />
+					</Route>
+					<Route path="/bulletin/articles" exact>
+						<Header logo={Logo} />
+						<Articles />
+					</Route>
+					<Route path="/client/appointment" exact>
+						<Header logo={Logo} />
+						<Appointment />
+					</Route>
+					<Route path="/client/contact-us" exact>
+						<Header logo={Logo} />
+						<ContactUs />
+					</Route>
+					<Route path="/client/testimonial" exact>
+						<Header logo={Logo} />
+						<Testimonial />
+					</Route>
+					<Route path="/hr/employment-application" exact>
+						<Header logo={Logo} />
+						<EmploymentApplication />
+					</Route>
+					<Route path="/staff" exact>
+						<Header logo={Logo} />
+						<Staff />
+					</Route>
+					<Route path="/practicing-area" exact>
+						<Header logo={Logo} />
+						<PracticingArea />
 					</Route>
 					<Route path="*" component={NotFound} />
 				</Switch>

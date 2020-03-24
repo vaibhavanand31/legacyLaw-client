@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	closeNav: {
 		color: theme.palette.common.white,
-		width: 30,
-		height: 30,
+		width: 70,
+		height: 70,
 		margin: 50,
 		padding: 10
 	}
