@@ -14,7 +14,8 @@ import {
 	ContactUs,
 	Testimonial,
 	EmploymentApplication,
-	Staff,
+	Advocates,
+	Advocate,
 	PracticingArea
 } from './Components';
 
@@ -59,9 +60,13 @@ class App extends Component {
 						<Header logo={Logo} />
 						<EmploymentApplication />
 					</Route>
-					<Route path="/staff" exact>
+					<Route path="/advocates" exact>
 						<Header logo={Logo} />
-						<Staff />
+						<Advocates />
+					</Route>
+					<Route path="/advocate/:name" exact>
+						<Header logo={Logo} />
+						<Advocate />
 					</Route>
 					<Route path="/practicing-area" exact>
 						<Header logo={Logo} />

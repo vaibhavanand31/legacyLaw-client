@@ -10,7 +10,8 @@ import ContactUs from './Client/ContactUs';
 import Testimonial from './Client/Testimonial';
 import Home from './Home/Home';
 import EmploymentApplication from './HR/EmploymentApplication';
-import Staff from './Staff/Staff';
+import Advocates from './Staff/Advocates';
+import Advocate from './Staff/Advocate';
 import PracticingArea from './Staff/PracticingArea';
 import NotFound from './NotFound/NotFound';
 
@@ -27,7 +28,8 @@ export {
 	Testimonial,
 	Home,
 	EmploymentApplication,
-	Staff,
+	Advocates,
+	Advocate,
 	PracticingArea,
 	NotFound
 };
