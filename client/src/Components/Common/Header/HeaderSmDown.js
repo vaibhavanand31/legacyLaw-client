@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Toolbar, Grid, IconButton, Tooltip, Menu } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import MoreVertRoundedIcon from '@material-ui/icons/MoreVertRounded';
 import SendRoundedIcon from '@material-ui/icons/SendRounded';
 import HeadsetMicRoundedIcon from '@material-ui/icons/HeadsetMicRounded';
 import CalendarTodayRoundedIcon from '@material-ui/icons/CalendarTodayRounded';
-import styles from './header.module.css';
+
+import TopSidenav from '../TopSidenav';
+// import styles from './header.module.css';
 
 const useStyles = makeStyles((theme) => ({
 	customHoverFocus: {
@@ -55,11 +56,7 @@ function HeaderSmDown(props) {
 			<Toolbar>
 				<Grid direction="row" container justify="space-between" alignItems="center" spacing={3}>
 					<Grid item>
-						<Tooltip title="Menu">
-							<IconButton aria-label="Menu" color="inherit">
-								<MenuIcon />
-							</IconButton>
-						</Tooltip>
+						<TopSidenav />
 					</Grid>
 					<Grid item>
 						<img style={{ maxHeight: '70px' }} src={props.logo} alt="The Legacy Law" />

@@ -1,6 +1,5 @@
 import Header from './Header/Header';
 import Footer from './Footer';
-import LeftSidenav from './LeftSidenav';
-import RightSidenav from './RightSidenav';
+import TopSidenav from './TopSidenav';
 
-export { Header, Footer, LeftSidenav, RightSidenav };
+export { Header, Footer, TopSidenav };
