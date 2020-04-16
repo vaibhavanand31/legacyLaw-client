@@ -1,0 +1,177 @@
+.mainArticle {
+	height: 100%;
+	min-height: 90vh;
+}
+
+@media only screen and (max-width: 992px) {
+	.mainArticle {
+		color: white;
+		height: 100%;
+		width: 100%;
+		min-height: 91vh;
+		background-color: transparent;
+		background-image: url('../../images/CTA-1[2].jpg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+}
+
+.content {
+	padding: 10px;
+	max-width: 500px;
+}
+
+@media only screen and (max-width: 992px) {
+	.content {
+		padding: 10px;
+		width: 100%;
+	}
+}
+
+.contentHeading {
+	padding: 10px;
+	text-transform: capitalize;
+}
+
+.contentSubHeading {
+	padding: 10px;
+}
+
+.contentDescription {
+	padding: 10px;
+}
+
+.exporeButton {
+	padding: 10px;
+}
+
+.people {
+	width: 100%;
+}
+
+.peopleBackGround {
+	padding: 20 0px;
+	background-image: url('../../images/banner-meet-people.jpg');
+	max-height: 250px;
+	position: relative;
+}
+
+.circle {
+	background: #7d6b5e;
+	background: -webkit-linear-gradient(top left, #7d6b5e, #1a1c33);
+	background: -moz-linear-gradient(top left, #7d6b5e, #1a1c33);
+	background: linear-gradient(to bottom right, #7d6b5e, #1a1c33);
+	border-radius: 50%;
+	width: 300px;
+	height: 300px;
+	position: relative;
+	left: 60%;
+	bottom: 20px;
+	transition: linear 0.5s;
+}
+
+@media only screen and (max-width: 992px) {
+	.circle {
+		left: 0%;
+		bottom: 0px;
+	}
+}
+
+.circle:after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+
+.circle:hover {
+	transform: scale(1.05);
+}
+
+.circleContent {
+	position: absolute;
+	display: table;
+	bottom: 35%;
+	width: 100%;
+	text-align: center;
+	/* NOT IMPORTANT */
+	font-family: arial, sans-serif;
+	font-size: 2em;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.circleContentTitle {
+	padding: 15px;
+	color: oldlace;
+}
+
+.circleContentButton {
+	padding: 15px;
+}
+
+.latestNews {
+	padding: 50px;
+	text-align: center;
+}
+
+.latestNewsCards {
+	align-items: center;
+}
+
+.contactUs {
+	height: 100vh;
+	width: 100%;
+	background-image: url('../../images/contact_us.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+.contactUsInner {
+	position: relative;
+	padding: 20px;
+	padding-left: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+	.contactUsInner {
+		padding-left: 100px;
+	}
+}
+
+@media only screen and (min-width: 986px) {
+	.contactUsInner {
+		padding-left: 200px;
+	}
+}
+
+.career {
+	height: 100vh;
+	width: 100%;
+	background-image: url('../../images/career-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	color: ivory;
+}
+
+.careerInner {
+	position: relative;
+	padding: 20px;
+	padding-left: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+	.careerInner {
+		padding-left: 100px;
+	}
+}
+
+@media only screen and (min-width: 986px) {
+	.careerInner {
+		padding-left: 200px;
+	}
+}

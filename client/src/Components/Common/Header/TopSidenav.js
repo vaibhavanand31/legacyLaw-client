@@ -67,13 +67,13 @@ function TopSidenav() {
 						<Grid item>
 							<List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
 								<ListItem button>
-									<ListItemText primary="About The Legacy Law" />
+									<ListItemText primary="About Us" />
 								</ListItem>
 								<ListItem button>
-									<ListItemText primary="Partners" />
+									<ListItemText primary="Expertise" />
 								</ListItem>
 								<ListItem button>
-									<ListItemText primary="Practicing Areas" />
+									<ListItemText primary="People" />
 								</ListItem>
 								<ListItem button onClick={handleClick}>
 									<ListItemText primary="Bulletin" />

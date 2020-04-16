@@ -1,0 +1,10 @@
+.footer {
+	width: 100%;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a7c7dc+0,85b2d3+100;Blue+Grey+3D */
+	background: #7d6b5e;
+	background: -webkit-linear-gradient(top left, #7d6b5e, #1a1c33);
+	background: -moz-linear-gradient(top left, #7d6b5e, #1a1c33);
+	background: linear-gradient(to bottom right, #7d6b5e, #1a1c33);
+	color: oldlace;
+	padding: 20px;
+}

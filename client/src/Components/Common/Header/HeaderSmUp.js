@@ -1,53 +1,93 @@
-import React, { useState } from 'react';
-import { Toolbar, Grid, Button, Container, Divider, Typography, Box } from '@material-ui/core';
-import styles from './header.module.css';
+import React, { useState, useRef } from 'react';
+import { Toolbar, Grid, Button, Popper, Grow, Paper, ClickAwayListener, MenuList, MenuItem } from '@material-ui/core';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+// import styles from './header.module.css';
 
 function HeaderSmUp(props) {
-	const [ isPracticingArea, setIsPracticingArea ] = useState(false);
-	const [ isPartner, setIsPartner ] = useState(false);
-	const [ isBulletin, setIsBulletin ] = useState(false);
+	const [ open, setOpen ] = useState(false);
+	const anchorRef = useRef(null);
 
-	const setMenuHoverInitial = () => {
-		setIsPracticingArea(false);
-		setIsPartner(false);
-		setIsBulletin(false);
+	const handleToggle = () => {
+		setOpen((prevOpen) => !prevOpen);
 	};
-	const hoverPrcticingArea = () => {
-		setMenuHoverInitial();
-		setIsPracticingArea(true);
+
+	const handleClose = (event) => {
+		if (anchorRef.current && anchorRef.current.contains(event.target)) {
+			return;
+		}
+
+		setOpen(false);
 	};
-	const hoverPartner = () => {
-		setMenuHoverInitial();
-		setIsPartner(true);
-	};
-	const hoverButtetin = () => {
-		setMenuHoverInitial();
-		setIsBulletin(true);
-	};
+
+	function handleListKeyDown(event) {
+		if (event.key === 'Tab') {
+			event.preventDefault();
+			setOpen(false);
+		}
+	}
+
+	// return focus to the button when we transitioned from !open -> open
+	const prevOpen = React.useRef(open);
+	React.useEffect(
+		() => {
+			if (prevOpen.current === true && open === false) {
+				anchorRef.current.focus();
+			}
+			prevOpen.current = open;
+		},
+		[ open ]
+	);
+
 	return (
 		<React.Fragment>
 			<Toolbar>
 				<Grid direction="row" container justify="center" alignItems="center" spacing={3}>
 					<Grid item>
-						<Button color="inherit">About TLL</Button>
+						<Button color="inherit">About Us</Button>
 					</Grid>
 					<Grid item>
-						<Button color="inherit" onMouseEnter={() => hoverPrcticingArea()}>
-							Practice Areas
-						</Button>
+						<Button color="inherit">Expertise</Button>
 					</Grid>
 					<Grid item>
-						<Button color="inherit" onMouseEnter={() => hoverPartner()}>
-							Partners
-						</Button>
+						<Button color="inherit">People</Button>
 					</Grid>
 					<Grid item>
 						<img src={props.logo} alt="The Legacy Law" />
 					</Grid>
 					<Grid item>
-						<Button color="inherit" onMouseEnter={() => hoverButtetin()}>
+						<Button
+							color="inherit"
+							ref={anchorRef}
+							aria-controls={open ? 'menu-list-grow' : undefined}
+							aria-haspopup="true"
+							onClick={handleToggle}
+						>
 							Bulletin
+							{open ? <ExpandLess /> : <ExpandMore />}
 						</Button>
+						<Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+							{({ TransitionProps, placement }) => (
+								<Grow
+									{...TransitionProps}
+									style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+								>
+									<Paper>
+										<ClickAwayListener onClickAway={handleClose}>
+											<MenuList
+												autoFocusItem={open}
+												id="menu-list-grow"
+												onKeyDown={handleListKeyDown}
+											>
+												<MenuItem onClick={handleClose}>News</MenuItem>
+												<MenuItem onClick={handleClose}>Events</MenuItem>
+												<MenuItem onClick={handleClose}>Articles</MenuItem>
+											</MenuList>
+										</ClickAwayListener>
+									</Paper>
+								</Grow>
+							)}
+						</Popper>
 					</Grid>
 					<Grid item>
 						<Button color="inherit">Client Tools</Button>
@@ -57,77 +97,6 @@ function HeaderSmUp(props) {
 					</Grid>
 				</Grid>
 			</Toolbar>
-			<Box className="styles.menuOverride">
-				{isPracticingArea && (
-					<Container className="style.containerMenuOverride" onMouseLeave={() => setMenuHoverInitial()}>
-						<Grid container>
-							<Grid item />
-						</Grid>
-					</Container>
-				)}
-				{isPartner && (
-					<Container onMouseLeave={() => setMenuHoverInitial()}>
-						<p />
-					</Container>
-				)}
-				{isBulletin && (
-					<Container onMouseLeave={() => setMenuHoverInitial()}>
-						<Grid container direction="row" justify="space-evenly" alignItems="stretch">
-							<Grid item>
-								<Grid container direction="column" justify="space-between" alignItems="center">
-									<Grid item>
-										<Typography className={styles.bulletinTitle} variant="subtitle1" gutterBottom>
-											News
-										</Typography>
-									</Grid>
-									<Divider />
-									<Grid item>
-										<img
-											className={styles.bulletinImg}
-											src={require('../../../images/bulletin-news.png')}
-											alt="News"
-										/>
-									</Grid>
-								</Grid>
-							</Grid>
-							<Grid item>
-								<Grid container direction="column" justify="space-between" alignItems="center">
-									<Grid item>
-										<Typography className={styles.bulletinTitle} variant="subtitle1" gutterBottom>
-											Events
-										</Typography>
-									</Grid>
-									<Divider />
-									<Grid item>
-										<img
-											className={styles.bulletinImg}
-											src={require('../../../images/bulletin-event.jpg')}
-											alt="Events"
-										/>
-									</Grid>
-								</Grid>
-							</Grid>
-							<Grid item>
-								<Grid container direction="column" justify="space-between" alignItems="center">
-									<Grid item>
-										<Typography className={styles.bulletinTitle} variant="subtitle1" gutterBottom>
-											Articles
-										</Typography>
-									</Grid>
-									<Divider />
-									<Grid item>
-										<img
-											className={styles.bulletinImg}
-											src={require('../../../images/bulletin-article.jpg')}
-											alt="Articles"
-										/>
-									</Grid>
-								</Grid>
-							</Grid>
-						</Grid>
-					</Container>
-				)}
-			</Box>
 		</React.Fragment>
 	);
 }

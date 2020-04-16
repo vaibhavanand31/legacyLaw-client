@@ -1,6 +1,8 @@
 .appBar {
-	background: #2c3b50;
-	background: radial-gradient(circle, rgba(44, 59, 80, 1) 0%, rgba(0, 0, 0, 1) 100%);
+	background: #7d6b5e;
+	background: -webkit-linear-gradient(top left, #7d6b5e, #1a1c33);
+	background: -moz-linear-gradient(top left, #7d6b5e, #1a1c33);
+	background: linear-gradient(to bottom right, #7d6b5e, #1a1c33);
 }
 .menuOverride {
 	position: relative;
