@@ -12,7 +12,7 @@ import Home from './Home/Home';
 import EmploymentApplication from './HR/EmploymentApplication';
 import Advocates from './Staff/Advocates';
 import Advocate from './Staff/Advocate';
-import PracticingArea from './Staff/PracticingArea';
+import Expertise from './Staff/Expertise';
 import NotFound from './NotFound/NotFound';
 
 export {
@@ -30,6 +30,6 @@ export {
 	EmploymentApplication,
 	Advocates,
 	Advocate,
-	PracticingArea,
+	Expertise,
 	NotFound
 };

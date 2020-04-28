@@ -13,6 +13,7 @@ import {
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import styles from './home.module.css';
 import LatestCard from './LatestCard';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
 	latesNewsGridContainer: { padding: '20px 0px' },
@@ -24,6 +25,7 @@ const useStyles = makeStyles(() => ({
 function LatestNews() {
 	const classes = useStyles();
 	const latestNews = [ 1, 2, 3, 4 ];
+	const history = useHistory();
 
 	return (
 		<Container className={styles.latestNews}>
@@ -31,7 +33,13 @@ function LatestNews() {
 				Latest News
 				<Hidden smUp>
 					<Tooltip title="Browse all news">
-						<IconButton aria-label="All" fontSize="inherit">
+						<IconButton
+							aria-label="All"
+							fontSize="inherit"
+							onClick={() => {
+								history.push('/bulletin/news');
+							}}
+						>
 							<ArrowRightAltIcon />
 						</IconButton>
 					</Tooltip>
@@ -49,7 +57,12 @@ function LatestNews() {
 				</Grid>
 				<Hidden xsDown>
 					<Grid className={classes.latesNewsGridItem} item>
-						<Button href="#" color="primary">
+						<Button
+							color="primary"
+							onClick={() => {
+								history.push('/bulletin/news');
+							}}
+						>
 							<Typography variant="button" display="block">
 								Browse all News
 							</Typography>

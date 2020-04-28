@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Button, withStyles, responsiveFontSizes, createMuiTheme, ThemeProvider } from '@material-ui/core';
 
 import styles from './home.module.css';
+import { useHistory } from 'react-router-dom';
 
 const ColorButton = withStyles((theme) => ({
 	root: {
@@ -11,6 +12,7 @@ const ColorButton = withStyles((theme) => ({
 }))(Button);
 
 function MeetPeople() {
+	const history = useHistory();
 	let theme = createMuiTheme();
 	theme = responsiveFontSizes(theme);
 	return (
@@ -21,7 +23,13 @@ function MeetPeople() {
 						Meet our people
 					</Typography>
 				</ThemeProvider>
-				<ColorButton className={styles.circleContentButton} variant="outlined">
+				<ColorButton
+					onClick={() => {
+						history.push('/advocates');
+					}}
+					className={styles.circleContentButton}
+					variant="outlined"
+				>
 					View all
 				</ColorButton>
 			</div>

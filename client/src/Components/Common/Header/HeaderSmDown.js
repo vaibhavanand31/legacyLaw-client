@@ -6,6 +6,7 @@ import SendRoundedIcon from '@material-ui/icons/SendRounded';
 import HeadsetMicRoundedIcon from '@material-ui/icons/HeadsetMicRounded';
 import CalendarTodayRoundedIcon from '@material-ui/icons/CalendarTodayRounded';
 import TopSidenav from './TopSidenav';
+import { useHistory } from 'react-router-dom';
 // import styles from './header.module.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -40,6 +41,7 @@ const StyledMenu = withStyles({
 ));
 
 function HeaderSmDown(props) {
+	const history = useHistory();
 	const classes = useStyles();
 	const [ anchorEl, setAnchorEl ] = useState(null);
 
@@ -58,7 +60,14 @@ function HeaderSmDown(props) {
 						<TopSidenav />
 					</Grid>
 					<Grid item>
-						<img style={{ maxHeight: '70px' }} src={props.logo} alt="The Legacy Law" />
+						<img
+							style={{ maxHeight: '70px' }}
+							src={props.logo}
+							alt="The Legacy Law"
+							onClick={() => {
+								history.push('/');
+							}}
+						/>
 					</Grid>
 					<Grid item>
 						<Tooltip title="Contact Us">
@@ -82,21 +91,38 @@ function HeaderSmDown(props) {
 							<Grid container direction="column" justify="space-between" alignItems="center" spacing={1}>
 								<Grid item xs>
 									<Tooltip title="Contact Us">
-										<IconButton className={classes.customHoverFocus}>
+										<IconButton
+											onClick={() => {
+												contactusMenuHandelClose();
+												history.push('/client/contact-us');
+											}}
+											className={classes.customHoverFocus}
+										>
 											<SendRoundedIcon />
 										</IconButton>
 									</Tooltip>
 								</Grid>
 								<Grid item xs>
 									<Tooltip title="Call">
-										<IconButton className={classes.customHoverFocus}>
+										<IconButton
+											onClick={() => {
+												contactusMenuHandelClose();
+											}}
+											className={classes.customHoverFocus}
+										>
 											<HeadsetMicRoundedIcon />
 										</IconButton>
 									</Tooltip>
 								</Grid>
 								<Grid item xs>
 									<Tooltip title="Appointment">
-										<IconButton className={classes.customHoverFocus}>
+										<IconButton
+											onClick={() => {
+												contactusMenuHandelClose();
+												history.push('/client/appointment');
+											}}
+											className={classes.customHoverFocus}
+										>
 											<CalendarTodayRoundedIcon />
 										</IconButton>
 									</Tooltip>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Typography, Button, withStyles } from '@material-ui/core';
 
 import styles from './home.module.css';
+import { useHistory } from 'react-router-dom';
 
 const ColorButton = withStyles((theme) => ({
 	root: {
@@ -11,6 +12,7 @@ const ColorButton = withStyles((theme) => ({
 }))(Button);
 
 function Career() {
+	const history = useHistory();
 	return (
 		<Grid className={styles.career} container direction="row" justify="flex-start" alignItems="center">
 			<Grid
@@ -39,7 +41,14 @@ function Career() {
 					</Typography>
 				</Grid>
 				<Grid item>
-					<ColorButton variant="outlined">Apply Now</ColorButton>
+					<ColorButton
+						onClick={() => {
+							history.push('/hr/employment');
+						}}
+						variant="outlined"
+					>
+						Apply Now
+					</ColorButton>
 				</Grid>
 			</Grid>
 		</Grid>

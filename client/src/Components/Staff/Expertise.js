@@ -1,7 +1,7 @@
 import React from 'react';
 
-function PracticingArea() {
+function Expertise() {
 	return <div>practicing areas</div>;
 }
 
-export default PracticingArea;
+export default Expertise;

@@ -2,9 +2,12 @@ import React, { useState, useRef } from 'react';
 import { Toolbar, Grid, Button, Popper, Grow, Paper, ClickAwayListener, MenuList, MenuItem } from '@material-ui/core';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import { useHistory } from 'react-router-dom';
+
 // import styles from './header.module.css';
 
 function HeaderSmUp(props) {
+	const history = useHistory();
 	const [ open, setOpen ] = useState(false);
 	const anchorRef = useRef(null);
 
@@ -13,10 +16,6 @@ function HeaderSmUp(props) {
 	};
 
 	const handleClose = (event) => {
-		if (anchorRef.current && anchorRef.current.contains(event.target)) {
-			return;
-		}
-
 		setOpen(false);
 	};
 
@@ -29,6 +28,7 @@ function HeaderSmUp(props) {
 
 	// return focus to the button when we transitioned from !open -> open
 	const prevOpen = React.useRef(open);
+
 	React.useEffect(
 		() => {
 			if (prevOpen.current === true && open === false) {
@@ -44,16 +44,43 @@ function HeaderSmUp(props) {
 			<Toolbar>
 				<Grid direction="row" container justify="center" alignItems="center" spacing={3}>
 					<Grid item>
-						<Button color="inherit">About Us</Button>
+						<Button
+							color="inherit"
+							onClick={() => {
+								history.push('/about-us');
+							}}
+						>
+							About Us
+						</Button>
 					</Grid>
 					<Grid item>
-						<Button color="inherit">Expertise</Button>
+						<Button
+							color="inherit"
+							onClick={() => {
+								history.push('/expertise');
+							}}
+						>
+							Expertise
+						</Button>
 					</Grid>
 					<Grid item>
-						<Button color="inherit">People</Button>
+						<Button
+							color="inherit"
+							onClick={() => {
+								history.push('/advocates');
+							}}
+						>
+							People
+						</Button>
 					</Grid>
 					<Grid item>
-						<img src={props.logo} alt="The Legacy Law" />
+						<img
+							src={props.logo}
+							alt="The Legacy Law"
+							onClick={() => {
+								history.push('/');
+							}}
+						/>
 					</Grid>
 					<Grid item>
 						<Button
@@ -79,9 +106,30 @@ function HeaderSmUp(props) {
 												id="menu-list-grow"
 												onKeyDown={handleListKeyDown}
 											>
-												<MenuItem onClick={handleClose}>News</MenuItem>
-												<MenuItem onClick={handleClose}>Events</MenuItem>
-												<MenuItem onClick={handleClose}>Articles</MenuItem>
+												<MenuItem
+													onClick={() => {
+														history.push('/bulletin/news');
+														handleClose();
+													}}
+												>
+													News
+												</MenuItem>
+												<MenuItem
+													onClick={() => {
+														history.push('/bulletin/events');
+														handleClose();
+													}}
+												>
+													Events
+												</MenuItem>
+												<MenuItem
+													onClick={() => {
+														history.push('/bulletin/articles');
+														handleClose();
+													}}
+												>
+													Articles
+												</MenuItem>
 											</MenuList>
 										</ClickAwayListener>
 									</Paper>
@@ -90,10 +138,24 @@ function HeaderSmUp(props) {
 						</Popper>
 					</Grid>
 					<Grid item>
-						<Button color="inherit">Client Tools</Button>
+						<Button
+							color="inherit"
+							onClick={() => {
+								history.push('/client/appointment');
+							}}
+						>
+							Client Tools
+						</Button>
 					</Grid>
 					<Grid item>
-						<Button color="inherit">Contact Us</Button>
+						<Button
+							color="inherit"
+							onClick={() => {
+								history.push('/client/contact-us');
+							}}
+						>
+							Contact Us
+						</Button>
 					</Grid>
 				</Grid>
 			</Toolbar>

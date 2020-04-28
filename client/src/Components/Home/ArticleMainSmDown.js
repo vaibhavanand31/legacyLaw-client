@@ -3,7 +3,6 @@ import { Grid, Button, Typography } from '@material-ui/core';
 import styles from './home.module.css';
 
 function ArticleMainSmDown() {
-	console.log('loadded sm down article');
 	return (
 		<Grid className={styles.mainArticle} container direction="row" justify="center" alignItems="center">
 			<Grid container className={styles.content} direction="column">

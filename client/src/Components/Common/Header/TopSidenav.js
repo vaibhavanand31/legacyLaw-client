@@ -15,6 +15,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import CloseIcon from '@material-ui/icons/Close';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {},
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TopSidenav() {
+	const history = useHistory();
 	const classes = useStyles();
 	const [ state, setState ] = useState({
 		top: false
@@ -58,6 +60,11 @@ function TopSidenav() {
 
 		setState({ ...state, [anchor]: open });
 	};
+	const closeTopNav = () => {
+		setState({
+			top: false
+		});
+	};
 
 	const list = (anchor) => (
 		<Container>
@@ -67,13 +74,31 @@ function TopSidenav() {
 						<Grid item>
 							<List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
 								<ListItem button>
-									<ListItemText primary="About Us" />
+									<ListItemText
+										primary="About Us"
+										onClick={() => {
+											closeTopNav();
+											history.push('/about-us');
+										}}
+									/>
 								</ListItem>
 								<ListItem button>
-									<ListItemText primary="Expertise" />
+									<ListItemText
+										primary="Expertise"
+										onClick={() => {
+											closeTopNav();
+											history.push('/expertise');
+										}}
+									/>
 								</ListItem>
 								<ListItem button>
-									<ListItemText primary="People" />
+									<ListItemText
+										primary="People"
+										onClick={() => {
+											closeTopNav();
+											history.push('/advocates');
+										}}
+									/>
 								</ListItem>
 								<ListItem button onClick={handleClick}>
 									<ListItemText primary="Bulletin" />
@@ -82,13 +107,31 @@ function TopSidenav() {
 								<Collapse in={open} timeout="auto" unmountOnExit>
 									<List component="div">
 										<ListItem button className={classes.nested}>
-											<ListItemText primary="News" />
+											<ListItemText
+												primary="News"
+												onClick={() => {
+													closeTopNav();
+													history.push('/bulletin/news');
+												}}
+											/>
 										</ListItem>
 										<ListItem button className={classes.nested}>
-											<ListItemText primary="Articles" />
+											<ListItemText
+												primary="Articles"
+												onClick={() => {
+													closeTopNav();
+													history.push('/bulletin/articles');
+												}}
+											/>
 										</ListItem>
 										<ListItem button className={classes.nested}>
-											<ListItemText primary="Events" />
+											<ListItemText
+												primary="Events"
+												onClick={() => {
+													closeTopNav();
+													history.push('/bulletin/events');
+												}}
+											/>
 										</ListItem>
 									</List>
 								</Collapse>

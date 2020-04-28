@@ -1,9 +1,10 @@
 import React from 'react';
 import { Grid, Typography, Button } from '@material-ui/core';
-
 import styles from './home.module.css';
+import { useHistory } from 'react-router-dom';
 
 function ContactUs() {
+	const history = useHistory();
 	return (
 		<Grid className={styles.contactUs} container direction="row" justify="flex-start" alignItems="center">
 			<Grid
@@ -28,7 +29,14 @@ function ContactUs() {
 					</Typography>
 				</Grid>
 				<Grid item>
-					<Button variant="outlined">Discover more</Button>
+					<Button
+						variant="outlined"
+						onClick={() => {
+							history.push('/client/contact-us');
+						}}
+					>
+						Discover more
+					</Button>
 				</Grid>
 			</Grid>
 		</Grid>

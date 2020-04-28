@@ -17,7 +17,7 @@ import {
 	EmploymentApplication,
 	Advocates,
 	Advocate,
-	PracticingArea
+	Expertise
 } from './Components';
 
 class App extends Component {
@@ -50,7 +50,7 @@ class App extends Component {
 					<Route path="/client/testimonial" exact>
 						<Testimonial />
 					</Route>
-					<Route path="/hr/employment-application" exact>
+					<Route path="/hr/employment" exact>
 						<EmploymentApplication />
 					</Route>
 					<Route path="/advocates" exact>
@@ -59,8 +59,8 @@ class App extends Component {
 					<Route path="/advocate/:name" exact>
 						<Advocate />
 					</Route>
-					<Route path="/practicing-area" exact>
-						<PracticingArea />
+					<Route path="/expertise" exact>
+						<Expertise />
 					</Route>
 					<Route path="*" component={NotFound} />
 				</Switch>
