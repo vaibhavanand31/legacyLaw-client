@@ -1,0 +1,78 @@
+.background {
+	max-width: 100%;
+	max-height: 300px;
+	object-fit: cover;
+}
+@media only screen and (max-width: 896px) {
+	.background {
+		max-width: 100%;
+		max-height: 100px;
+		object-fit: cover;
+	}
+}
+
+.banner {
+	height: 100%;
+	width: 100%;
+}
+
+.upperLayout {
+	z-index: 10;
+	margin: 0 auto;
+	max-width: 80%;
+	padding: 20px;
+	position: relative;
+}
+
+@media only screen and (max-width: 896px) {
+	.upperLayout {
+		padding: 5px;
+	}
+}
+
+.upperLayoutPaper {
+	padding: 20px;
+}
+
+.titleConatiner {
+	padding: 10px;
+}
+
+.decsriptionContainer {
+	padding: 10px;
+}
+
+.addressSection {
+	padding: 30px;
+}
+
+.addressSectionTitle {
+	padding: 30px;
+	margin: 0 auto;
+}
+
+.addressContainer {
+	width: 200px;
+	background: #d6d6d6;
+	height: 200px;
+	border-radius: 50%;
+}
+
+.addressContainer:hover {
+	animation: pulse 2s;
+}
+
+@keyframes pulse {
+	0% {
+		background-color: #d6d6d6;
+	}
+	100% {
+		background-color: #635552;
+	}
+}
+
+.innerText {
+	position: relative;
+	margin: 0 auto;
+	bottom: -15%;
+}

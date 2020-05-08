@@ -4,7 +4,7 @@ import Logo from './logo_transparent.png';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
 	Home,
-	ServiceAddress,
+	AboutUs,
 	NotFound,
 	Header,
 	Footer,
@@ -30,15 +30,21 @@ class App extends Component {
 						<Home />
 					</Route>
 					<Route path="/about-us" exact>
-						<ServiceAddress />
+						<AboutUs />
 					</Route>
 					<Route path="/bulletin/news" exact>
+						<News />
+					</Route>
+					<Route path="/bulletin/news/:heading" exact>
 						<News />
 					</Route>
 					<Route path="/bulletin/events" exact>
 						<Events />
 					</Route>
 					<Route path="/bulletin/articles" exact>
+						<Articles />
+					</Route>
+					<Route path="/bulletin/articles/:title" exact>
 						<Articles />
 					</Route>
 					<Route path="/client/appointment" exact>
@@ -50,7 +56,7 @@ class App extends Component {
 					<Route path="/client/testimonial" exact>
 						<Testimonial />
 					</Route>
-					<Route path="/hr/employment" exact>
+					<Route path="/hr/career" exact>
 						<EmploymentApplication />
 					</Route>
 					<Route path="/advocates" exact>

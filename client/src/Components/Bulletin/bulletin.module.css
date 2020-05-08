@@ -1,0 +1,58 @@
+.background {
+	max-width: 100%;
+	max-height: 300px;
+	object-fit: cover;
+}
+@media only screen and (max-width: 896px) {
+	.background {
+		max-width: 100%;
+		max-height: 100px;
+		object-fit: cover;
+	}
+}
+
+.banner {
+	height: 100%;
+	width: 100%;
+}
+
+.upperLayout {
+	z-index: 10;
+	margin: 0 auto;
+	max-width: 80%;
+	padding: 20px;
+	position: relative;
+}
+
+@media only screen and (max-width: 896px) {
+	.upperLayout {
+		padding: 5px;
+	}
+}
+
+.upperLayoutPaper {
+	padding: 20px;
+}
+
+.headingConatiner {
+	padding: 10px;
+}
+
+.subHeadingConatiner {
+	padding: 10px;
+}
+.decsriptionContainer {
+	padding: 10px;
+}
+
+.sourceContainer {
+	padding: 10px 10px 2px;
+}
+
+.publisherContainer {
+	padding: 2px 10px;
+}
+
+.moreCards {
+	padding: 30px;
+}

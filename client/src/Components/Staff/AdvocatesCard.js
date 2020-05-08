@@ -9,14 +9,16 @@ import {
 	CardActions,
 	makeStyles
 } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
 	latestCard: { maxWidth: 345 },
 	latestCardMedia: { height: 140 }
 }));
 
-function LatestCard() {
+function AdvocatesCard() {
 	const classes = useStyles();
+	const history = useHistory();
 
 	return (
 		<Card className={classes.latestCard}>
@@ -40,15 +42,17 @@ function LatestCard() {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				<Button size="small" color="primary">
-					Share
-				</Button>
-				<Button size="small" color="primary">
-					Learn More
+				<Button
+					size="small"
+					color="primary"
+					onClick={() => {
+						history.push('/advocate/slug-name');
+					}}
+				>
+					View Profile
 				</Button>
 			</CardActions>
 		</Card>
 	);
 }
-
-export default LatestCard;
+export default AdvocatesCard;

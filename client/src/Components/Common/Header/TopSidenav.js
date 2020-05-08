@@ -124,7 +124,7 @@ function TopSidenav() {
 												}}
 											/>
 										</ListItem>
-										<ListItem button className={classes.nested}>
+										{/* <ListItem button className={classes.nested}>
 											<ListItemText
 												primary="Events"
 												onClick={() => {
@@ -132,7 +132,7 @@ function TopSidenav() {
 													history.push('/bulletin/events');
 												}}
 											/>
-										</ListItem>
+										</ListItem> */}
 									</List>
 								</Collapse>
 							</List>

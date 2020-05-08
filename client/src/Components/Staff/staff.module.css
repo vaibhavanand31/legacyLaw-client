@@ -1,0 +1,138 @@
+.staffMain {
+	min-height: 88vh;
+}
+
+.background {
+	max-width: 100%;
+	max-height: 300px;
+	object-fit: cover;
+}
+@media only screen and (max-width: 896px) {
+	.background {
+		max-width: 100%;
+		max-height: 100px;
+		object-fit: cover;
+	}
+}
+
+.banner {
+	height: 100%;
+	width: 100%;
+}
+
+.upperLayout {
+	margin: 0 auto;
+	max-width: 80%;
+	padding: 20px;
+	position: relative;
+}
+
+@media only screen and (max-width: 896px) {
+	.upperLayout {
+		padding: 5px;
+	}
+}
+
+.upperLayoutPaper {
+	padding: 20px;
+}
+
+.titleConatiner {
+	padding: 10px;
+}
+
+.decsriptionContainer {
+	padding: 10px;
+}
+
+.practiseContainer {
+	padding: 30px;
+}
+
+.practiseEach {
+	padding: 10px;
+}
+
+.main {
+	padding: 30px;
+}
+.pageTitle {
+	padding: 20px;
+}
+
+.people {
+	padding: 20px;
+}
+
+.advocateMain {
+	padding: 60px;
+	min-height: 90vh;
+}
+
+@media only screen and (max-width: 896px) {
+	.advocateMain {
+		padding: 30px;
+	}
+}
+
+.advocateName {
+}
+
+.advocateDesignation {
+	text-transform: uppercase;
+}
+
+.advocateCity {
+	text-transform: uppercase;
+}
+
+.advocateShortDescription {
+}
+
+.advocateLongDescription {
+}
+
+.advocateImage {
+}
+
+.advocateImage img {
+	width: 280px;
+	height: 240px;
+	object-fit: cover;
+}
+
+@media only screen and (max-width: 896px) {
+	.advocateImage img {
+		width: 100%;
+	}
+}
+
+.advocateContact {
+}
+
+.advocatePhone {
+}
+
+.advocateEmail {
+}
+
+.advocateAddress {
+}
+
+.advocateBar {
+}
+
+.advocateBarCity {
+}
+
+.advocateBarYear {
+}
+
+.advocateQualification {
+}
+
+.advocateLlb {
+}
+
+.advocateMbl {
+}

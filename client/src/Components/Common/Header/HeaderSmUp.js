@@ -114,14 +114,14 @@ function HeaderSmUp(props) {
 												>
 													News
 												</MenuItem>
-												<MenuItem
+												{/* <MenuItem
 													onClick={() => {
 														history.push('/bulletin/events');
 														handleClose();
 													}}
 												>
 													Events
-												</MenuItem>
+												</MenuItem> */}
 												<MenuItem
 													onClick={() => {
 														history.push('/bulletin/articles');

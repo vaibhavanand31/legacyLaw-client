@@ -11,8 +11,8 @@ import {
 	Tooltip
 } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import NewsCard from '../Bulletin/NewsCard';
 import styles from './home.module.css';
-import LatestCard from './LatestCard';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
@@ -75,7 +75,7 @@ function LatestNews() {
 				<Grid container justifu="center" spacing={3}>
 					{latestNews.map((news) => (
 						<Grid xs={12} sm={6} align="center" item key={news}>
-							<LatestCard />
+							<NewsCard />
 						</Grid>
 					))}
 				</Grid>

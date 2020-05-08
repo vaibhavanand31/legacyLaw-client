@@ -1,0 +1,79 @@
+.career {
+	min-height: 88vh;
+}
+
+.careerBackground {
+	background-image: url('../../images/career.jpg');
+	background-repeat: no-repeat;
+	background-position: center top;
+	width: 100%;
+	height: 400px;
+}
+
+.careerBackgroundContainer {
+	position: relative;
+	padding: 50px;
+	color: #ffffff;
+	text-transform: uppercase;
+}
+
+.careerTitle {
+	padding: 20px;
+}
+
+.careerSlogan {
+	padding: 5px 20px 5px;
+}
+
+.careerApplyNow {
+	padding: 20px;
+}
+
+.careerWhyUs {
+	padding: 20px;
+}
+
+.whyUsTitle {
+	padding: 20px 20px 10px;
+}
+
+.whyUsrow {
+	padding: 20px;
+}
+
+.whyUscolSubHeading h3 {
+	font-weight: 700;
+	text-decoration: solid;
+	color: #777777;
+}
+
+.whyUsMore {
+	color: #920f0f;
+	padding: 10px 0px;
+}
+
+.whyUsExpanded {
+	padding: 20px 0px;
+}
+
+.whyUsExpandedContainer {
+	border-radius: 30px;
+	background-color: slategrey;
+	padding: 30px;
+}
+
+.applyNow {
+	padding: 40px;
+}
+
+.applyNowForm {
+	padding: 20px;
+}
+
+.applyNowInput {
+	padding: 10px;
+}
+
+.applyNowButton {
+	padding: 20px;
+}

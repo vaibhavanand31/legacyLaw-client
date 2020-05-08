@@ -12,8 +12,8 @@ import {
 } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import styles from './home.module.css';
-import LatestCard from './LatestCard';
 import { useHistory } from 'react-router-dom';
+import ArticleCard from '../Bulletin/ArticleCard';
 
 const useStyles = makeStyles(() => ({
 	latesNewsGridContainer: { padding: '20px 0px' },
@@ -74,7 +74,7 @@ function LatestArticles() {
 				<Grid container justifu="center" spacing={3}>
 					{latestNews.map((news) => (
 						<Grid xs={12} sm={6} align="center" item key={news}>
-							<LatestCard />
+							<ArticleCard />
 						</Grid>
 					))}
 				</Grid>

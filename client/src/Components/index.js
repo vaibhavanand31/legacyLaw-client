@@ -2,6 +2,7 @@ import Header from './Common/Header/Header';
 import Footer from './Common/Footer/Footer';
 import TopSidenav from './Common/Header/TopSidenav';
 import ServiceAddress from './AboutUs/ServiceAddress';
+import AboutUs from './AboutUs/AboutUs';
 import Articles from './Bulletin/Articles';
 import Events from './Bulletin/Events';
 import News from './Bulletin/News';
@@ -14,6 +15,7 @@ import Advocates from './Staff/Advocates';
 import Advocate from './Staff/Advocate';
 import Expertise from './Staff/Expertise';
 import NotFound from './NotFound/NotFound';
+import NewsSelected from './Bulletin/NewsSelected';
 
 export {
 	Header,
@@ -31,5 +33,7 @@ export {
 	Advocates,
 	Advocate,
 	Expertise,
-	NotFound
+	NotFound,
+	AboutUs,
+	NewsSelected
 };
