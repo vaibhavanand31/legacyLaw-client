@@ -3,6 +3,7 @@ import { Toolbar, Grid, Button, Popper, Grow, Paper, ClickAwayListener, MenuList
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { useHistory } from 'react-router-dom';
+import CallIcon from '@material-ui/icons/Call';
 
 // import styles from './header.module.css';
 
@@ -141,21 +142,19 @@ function HeaderSmUp(props) {
 						<Button
 							color="inherit"
 							onClick={() => {
-								history.push('/client/appointment');
+								history.push('/client-tools');
 							}}
 						>
 							Client Tools
 						</Button>
 					</Grid>
 					<Grid item>
-						<Button
-							color="inherit"
-							onClick={() => {
-								history.push('/client/contact-us');
-							}}
-						>
-							Contact Us
-						</Button>
+						<a href="tel:+999999999" style={{ textDecoration: 'none', color: 'inherit' }}>
+							<Button color="inherit">
+								<CallIcon />
+								+91 99999999
+							</Button>
+						</a>
 					</Grid>
 				</Grid>
 			</Toolbar>

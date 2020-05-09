@@ -1,9 +1,10 @@
 import React from 'react';
 import { Grid, Button, Typography } from '@material-ui/core';
 import styles from './home.module.css';
+import { useHistory } from 'react-router-dom';
 
 function ArticleMainSmUp() {
-	console.log('loaded sm up article');
+	const history = useHistory();
 	return (
 		<Grid className={styles.mainArticle} container direction="row" justify="center" alignItems="center">
 			<Grid container className={styles.content} direction="column">
@@ -21,7 +22,11 @@ function ArticleMainSmUp() {
 					</Typography>
 				</Grid>
 				<Grid item className={styles.exporeButton}>
-					<Button variant="contained" color="primary">
+					<Button
+						variant="contained"
+						color="primary"
+						onClick={() => history.push('/bulletin/news/main-article')}
+					>
 						Explore More
 					</Button>
 				</Grid>

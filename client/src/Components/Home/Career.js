@@ -43,7 +43,7 @@ function Career() {
 				<Grid item>
 					<ColorButton
 						onClick={() => {
-							history.push('/hr/employment');
+							history.push('/hr/career');
 						}}
 						variant="outlined"
 					>

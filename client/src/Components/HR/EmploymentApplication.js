@@ -8,7 +8,11 @@ import {
 	Paper,
 	FormControl,
 	makeStyles,
-	TextField
+	TextField,
+	Select,
+	InputLabel,
+	FormHelperText,
+	MenuItem
 } from '@material-ui/core';
 import styles from './career.module.css';
 
@@ -33,37 +37,40 @@ const BackGroundPaper = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
 	formControl: {
 		'& > *': {
-			margin: theme.spacing(1)
+			margin: theme.spacing(1),
+			minWidth: 200
 		}
+	},
+	selectEmpty: {
+		marginTop: theme.spacing(2)
+	},
+	readMore: {
+		color: '#c30303'
 	}
 }));
 
 const designations = [
 	{
+		name: 'Sr Associate',
 		value: 'Sr Associate'
 	},
 	{
+		name: 'Jr Associate',
 		value: 'Jr Associate'
 	},
 	{
+		name: 'Assistant',
 		value: 'Assistant'
 	},
 	{
+		name: 'Legal Intern',
 		value: 'Legal Intern'
 	}
 ];
 
 export default function EmploymentApplication() {
 	const classes = useStyles();
-	const applyNowFormError = {
-		firstName: '',
-		lastName: '',
-		email: '',
-		phone: '',
-		experience: '',
-		designation: '',
-		resume: ''
-	};
+
 	const [ readMoreValue, setReadMoreValue ] = useState();
 	const [ applyNowInput, setApplyNowInput ] = useState({
 		firstName: '',
@@ -74,23 +81,6 @@ export default function EmploymentApplication() {
 		designation: '',
 		resume: ''
 	});
-	const [ formValid, setFormValid ] = useState(false);
-
-	const handleApplyNowValidation = (e) => {
-		const { name, value } = e.target;
-
-		switch (name) {
-			case 'firstName':
-				applyNowFormError.firstName = '312312';
-				break;
-			case 'lastName':
-				applyNowFormError.lastName = value.length <= 1 ? 'Cannot be empty' : '';
-				break;
-			default:
-				break;
-		}
-		console.log(applyNowFormError);
-	};
 
 	const handleReadMoreChange = (newValue) => {
 		if (newValue === readMoreValue) {
@@ -142,7 +132,9 @@ export default function EmploymentApplication() {
 								<Typography variant="subtitle2">It’s time to stand on a bigger stage.</Typography>
 							</div>
 							<div className={styles.whyUsMore}>
-								<Button onClick={() => handleReadMoreChange('whatWeDo')}>Read More+</Button>
+								<Button className={classes.readMore} onClick={() => handleReadMoreChange('whatWeDo')}>
+									Read More+
+								</Button>
 							</div>
 						</Grid>
 						<Hidden smUp>
@@ -164,7 +156,12 @@ export default function EmploymentApplication() {
 								<Typography variant="subtitle2">It’s time to find common ground.</Typography>
 							</div>
 							<div className={styles.whyUsMore}>
-								<Button onClick={() => handleReadMoreChange('cultureAndValues')}>Read More+</Button>
+								<Button
+									className={classes.readMore}
+									onClick={() => handleReadMoreChange('cultureAndValues')}
+								>
+									Read More+
+								</Button>
 							</div>
 						</Grid>
 						<Hidden smUp>
@@ -186,7 +183,12 @@ export default function EmploymentApplication() {
 								<Typography variant="subtitle2">It’s time to make the move.</Typography>
 							</div>
 							<div className={styles.whyUsMore}>
-								<Button onClick={() => handleReadMoreChange('panIndiaFocus')}>Read More+</Button>
+								<Button
+									className={classes.readMore}
+									onClick={() => handleReadMoreChange('panIndiaFocus')}
+								>
+									Read More+
+								</Button>
 							</div>
 						</Grid>
 						<Hidden smUp>
@@ -234,10 +236,8 @@ export default function EmploymentApplication() {
 							type="text"
 							value={applyNowInput.firstName}
 							onChange={(e) => {
-								handleApplyNowValidation(e);
 								setApplyNowInput({ ...applyNowInput, firstName: e.target.value });
 							}}
-							helperText={applyNowFormError.firstName}
 						/>
 					</FormControl>
 					<FormControl className={classes.formControl}>
@@ -249,13 +249,90 @@ export default function EmploymentApplication() {
 							type="text"
 							value={applyNowInput.lastName}
 							onChange={(e) => {
-								handleApplyNowValidation(e);
 								setApplyNowInput({ ...applyNowInput, lastName: e.target.value });
 							}}
-							helperText={applyNowFormError.lastName}
+						/>
+					</FormControl>
+					<FormControl className={classes.formControl}>
+						<TextField
+							id="email"
+							label="Email"
+							required
+							variant="outlined"
+							type="text"
+							value={applyNowInput.email}
+							onChange={(e) => {
+								setApplyNowInput({ ...applyNowInput, email: e.target.value });
+							}}
 						/>
 					</FormControl>
 					<div>
+						<FormControl className={classes.formControl}>
+							<TextField
+								id="contact"
+								label="Contact"
+								required
+								variant="outlined"
+								type="text"
+								value={applyNowInput.phone}
+								onChange={(e) => {
+									setApplyNowInput({ ...applyNowInput, phone: e.target.value });
+								}}
+							/>
+						</FormControl>
+
+						<FormControl className={classes.formControl}>
+							<TextField
+								id="experience"
+								label="Experience"
+								required
+								variant="outlined"
+								type="text"
+								value={applyNowInput.experience}
+								onChange={(e) => {
+									setApplyNowInput({ ...applyNowInput, experience: e.target.value });
+								}}
+							/>
+						</FormControl>
+						<FormControl variant="outlined" className={classes.formControl}>
+							<InputLabel htmlFor="designation">Designation</InputLabel>
+							<Select
+								id="designation"
+								label="Designation"
+								value={applyNowInput.designation}
+								onChange={(e) => {
+									setApplyNowInput({ ...applyNowInput, designation: e.target.value });
+								}}
+								name="designation"
+							>
+								{designations.map((des) => (
+									<MenuItem key={des.value} value={des.value}>
+										{des.name}
+									</MenuItem>
+								))}
+							</Select>
+						</FormControl>
+					</div>
+					<div>
+						<FormControl className={classes.formControl}>
+							<input
+								accept="application/pdf"
+								style={{ display: 'none' }}
+								id="resume"
+								type="file"
+								value={applyNowInput.resume}
+								onChange={(e) => {
+									setApplyNowInput({ ...applyNowInput, resume: e.target.value });
+								}}
+								aria-describedby="component-helper-text"
+							/>
+							<label htmlFor="resume">
+								<Button variant="outlined" component="span">
+									<span style={{ color: '#777' }}>Upload CV</span>
+								</Button>
+							</label>
+							<FormHelperText id="component-helper-text">Kindly Upload Your CV</FormHelperText>
+						</FormControl>
 						<FormControl className={classes.formControl}>
 							<Button id="apply-now" type="submit" variant="outlined">
 								Apply Now

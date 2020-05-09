@@ -94,7 +94,7 @@ function HeaderSmDown(props) {
 										<IconButton
 											onClick={() => {
 												contactusMenuHandelClose();
-												history.push('/client/contact-us');
+												history.push('/client-tools#contact-us');
 											}}
 											className={classes.customHoverFocus}
 										>
@@ -104,14 +104,16 @@ function HeaderSmDown(props) {
 								</Grid>
 								<Grid item xs>
 									<Tooltip title="Call">
-										<IconButton
-											onClick={() => {
-												contactusMenuHandelClose();
-											}}
-											className={classes.customHoverFocus}
-										>
-											<HeadsetMicRoundedIcon />
-										</IconButton>
+										<a href="tel:9999999" style={{ textDecoration: 'none' }}>
+											<IconButton
+												onClick={() => {
+													contactusMenuHandelClose();
+												}}
+												className={classes.customHoverFocus}
+											>
+												<HeadsetMicRoundedIcon />
+											</IconButton>
+										</a>
 									</Tooltip>
 								</Grid>
 								<Grid item xs>
@@ -119,7 +121,7 @@ function HeaderSmDown(props) {
 										<IconButton
 											onClick={() => {
 												contactusMenuHandelClose();
-												history.push('/client/appointment');
+												history.push('/client-tools#appointment');
 											}}
 											className={classes.customHoverFocus}
 										>

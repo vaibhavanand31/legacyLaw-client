@@ -11,9 +11,7 @@ import {
 	News,
 	Events,
 	Articles,
-	Appointment,
-	ContactUs,
-	Testimonial,
+	ClientTools,
 	EmploymentApplication,
 	Advocates,
 	Advocate,
@@ -47,14 +45,8 @@ class App extends Component {
 					<Route path="/bulletin/articles/:title" exact>
 						<Articles />
 					</Route>
-					<Route path="/client/appointment" exact>
-						<Appointment />
-					</Route>
-					<Route path="/client/contact-us" exact>
-						<ContactUs />
-					</Route>
-					<Route path="/client/testimonial" exact>
-						<Testimonial />
+					<Route path="/client-tools" exact>
+						<ClientTools />
 					</Route>
 					<Route path="/hr/career" exact>
 						<EmploymentApplication />
