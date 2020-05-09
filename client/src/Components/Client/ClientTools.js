@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './client.module.css';
 import { Paper, Typography } from '@material-ui/core';
-import Appointment from './Appointment';
+// import Appointment from './Appointment';
 import ContactUs from './ContactUs';
-import Testimonial from './Testimonial';
+// import Testimonial from './Testimonial';
 
 function ClientTools() {
 	return (
