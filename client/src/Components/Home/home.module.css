@@ -10,7 +10,6 @@
 		width: 100%;
 		min-height: 91vh;
 		background-color: transparent;
-		background-image: url('../../images/CTA-1[2].jpg');
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -154,7 +153,6 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	background-size: 100% 100%;
 	color: ivory;
 }
 
@@ -174,4 +172,9 @@
 	.careerInner {
 		padding-left: 200px;
 	}
+}
+
+.image {
+	max-height: 300px;
+	border-radius: 15%;
 }

@@ -13,10 +13,12 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
 	latestCard: { maxWidth: 345 },
-	latestCardMedia: { height: 140 }
+	latestCardMedia: {
+		height: '300px'
+	}
 }));
 
-function AdvocatesCard() {
+function AdvocatesCard(people) {
 	const classes = useStyles();
 	const history = useHistory();
 
@@ -26,18 +28,26 @@ function AdvocatesCard() {
 				<CardMedia
 					className={classes.latestCardMedia}
 					component="img"
-					alt="Contemplative Reptile"
-					height="140"
-					image={require('../../images/bulletin-article.jpg')}
-					title="Contemplative Reptile"
+					alt="Partner and Associate"
+					image={
+						people.people.display_picture ? (
+							people.people.display_picture
+						) : (
+							require('../../images/people.png')
+						)
+					}
+					title="Partner and Associate"
 				/>
 				<CardContent>
 					<Typography gutterBottom variant="h5" component="h2">
-						Lizard
+						{people.people.first_name ? people.people.first_name : ''}{' '}
+						{people.people.last_name ? people.people.last_name : ''}
+					</Typography>
+					<Typography variant="subtitle2" color="textPrimary" style={{ textDecoration: 'uppercase' }}>
+						{people.people.designation ? people.people.designation : ''}
 					</Typography>
 					<Typography variant="body2" color="textSecondary" component="p">
-						Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-						continents except Antarctica
+						{people.people.short_description ? people.people.short_description : ''}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
@@ -46,7 +56,7 @@ function AdvocatesCard() {
 					size="small"
 					color="primary"
 					onClick={() => {
-						history.push('/advocate/slug-name');
+						history.push(`/advocate/${people.people.slug_field ? people.people.slug_field : ''}`);
 					}}
 				>
 					View Profile

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
 	Grid,
 	Typography,
@@ -15,6 +15,7 @@ import {
 	MenuItem
 } from '@material-ui/core';
 import styles from './career.module.css';
+import useInput from '../hooks/useInput';
 
 const ColorButton = withStyles((theme) => ({
 	root: {
@@ -68,19 +69,27 @@ const designations = [
 	}
 ];
 
+const scrollToRef = (ref) =>
+	window.scrollTo({
+		top: ref.current.offsetTop,
+		left: 0,
+		behavior: 'smooth'
+	});
+
 export default function EmploymentApplication() {
 	const classes = useStyles();
+	const contactRef = useRef(null);
+	const executeScroll = () => scrollToRef(contactRef);
+
+	useEffect(() => {
+		window.scrollTo({
+			top: 1,
+			left: 0
+		});
+	}, []);
+	const [ errorMessage, setErrorMessage ] = useState('');
 
 	const [ readMoreValue, setReadMoreValue ] = useState();
-	const [ applyNowInput, setApplyNowInput ] = useState({
-		firstName: '',
-		lastName: '',
-		email: '',
-		phone: '',
-		experience: '',
-		designation: '',
-		resume: ''
-	});
 
 	const handleReadMoreChange = (newValue) => {
 		if (newValue === readMoreValue) {
@@ -90,8 +99,29 @@ export default function EmploymentApplication() {
 		}
 	};
 
+	const [ fname, bindFname, resetFname ] = useInput('');
+	const [ lname, bindLname, resetLname ] = useInput('');
+	const [ email, bindEmail, resetEmail ] = useInput('');
+	const [ phone, bindPhone, resetPhone ] = useInput('');
+	const [ exp, bindExp, resetExp ] = useInput('');
+
 	const handelApplYNowSubmit = (event) => {
 		event.preventDefault();
+		const applyFormDetails = { fname, lname, email, phone, exp };
+		if (!bindFname.error && !bindLname.error && !bindPhone.error && !bindEmail.error && !bindExp.error) {
+			if (
+				fname.length !== 0 &&
+				email.length !== 0 &&
+				phone.length !== 0 &&
+				lname.length !== 0 &&
+				exp.length !== 0
+			) {
+				console.log('i am ok');
+				setErrorMessage('');
+			} else {
+				setErrorMessage('Please fill all required fields');
+			}
+		}
 	};
 
 	return (
@@ -105,16 +135,18 @@ export default function EmploymentApplication() {
 					</Grid>
 					<Grid item>
 						<Typography variant="h3" className={styles.careerSlogan}>
-							Make it to top togther.
+							Make it to top together.
 						</Typography>
 						<Hidden smDown>
 							<Typography variant="h3" className={styles.careerSlogan}>
-								Its Time.
+								It's Time.
 							</Typography>
 						</Hidden>
 					</Grid>
 					<Grid className={styles.careerApplyNow}>
-						<ColorButton variant="outlined">Apply now</ColorButton>
+						<ColorButton onClick={executeScroll} variant="outlined">
+							Apply now
+						</ColorButton>
 					</Grid>
 				</Grid>
 			</section>
@@ -224,87 +256,57 @@ export default function EmploymentApplication() {
 					</Hidden>
 				</div>
 			</section>
-			<section className={styles.applyNow}>
+			<section ref={contactRef} className={styles.applyNow}>
 				<Typography variant="h4"> Apply Now</Typography>
 				<form className={styles.applyNowForm} noValidate autoComplete="off" onSubmit={handelApplYNowSubmit}>
 					<FormControl className={classes.formControl}>
 						<TextField
-							id="first-name"
+							id="fname"
 							label="First Name"
 							required
 							variant="outlined"
 							type="text"
-							value={applyNowInput.firstName}
-							onChange={(e) => {
-								setApplyNowInput({ ...applyNowInput, firstName: e.target.value });
-							}}
+							{...bindFname}
 						/>
 					</FormControl>
 					<FormControl className={classes.formControl}>
 						<TextField
-							id="last-name"
+							id="lname"
 							label="Last Name"
 							required
 							variant="outlined"
 							type="text"
-							value={applyNowInput.lastName}
-							onChange={(e) => {
-								setApplyNowInput({ ...applyNowInput, lastName: e.target.value });
-							}}
+							{...bindLname}
 						/>
 					</FormControl>
 					<FormControl className={classes.formControl}>
-						<TextField
-							id="email"
-							label="Email"
-							required
-							variant="outlined"
-							type="text"
-							value={applyNowInput.email}
-							onChange={(e) => {
-								setApplyNowInput({ ...applyNowInput, email: e.target.value });
-							}}
-						/>
+						<TextField id="email" label="Email" required variant="outlined" type="text" {...bindEmail} />
 					</FormControl>
 					<div>
 						<FormControl className={classes.formControl}>
 							<TextField
-								id="contact"
+								id="phone"
 								label="Contact"
 								required
 								variant="outlined"
 								type="text"
-								value={applyNowInput.phone}
-								onChange={(e) => {
-									setApplyNowInput({ ...applyNowInput, phone: e.target.value });
-								}}
+								{...bindPhone}
 							/>
 						</FormControl>
 
 						<FormControl className={classes.formControl}>
 							<TextField
-								id="experience"
-								label="Experience"
+								id="exp"
+								label="Experience in Years"
 								required
 								variant="outlined"
 								type="text"
-								value={applyNowInput.experience}
-								onChange={(e) => {
-									setApplyNowInput({ ...applyNowInput, experience: e.target.value });
-								}}
+								{...bindExp}
 							/>
 						</FormControl>
 						<FormControl variant="outlined" className={classes.formControl}>
 							<InputLabel htmlFor="designation">Designation</InputLabel>
-							<Select
-								id="designation"
-								label="Designation"
-								value={applyNowInput.designation}
-								onChange={(e) => {
-									setApplyNowInput({ ...applyNowInput, designation: e.target.value });
-								}}
-								name="designation"
-							>
+							<Select id="designation" label="Designation" name="designation">
 								{designations.map((des) => (
 									<MenuItem key={des.value} value={des.value}>
 										{des.name}
@@ -318,12 +320,8 @@ export default function EmploymentApplication() {
 							<input
 								accept="application/pdf"
 								style={{ display: 'none' }}
-								id="resume"
+								id="cv"
 								type="file"
-								value={applyNowInput.resume}
-								onChange={(e) => {
-									setApplyNowInput({ ...applyNowInput, resume: e.target.value });
-								}}
 								aria-describedby="component-helper-text"
 							/>
 							<label htmlFor="resume">

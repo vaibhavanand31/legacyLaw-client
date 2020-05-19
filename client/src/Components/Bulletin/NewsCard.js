@@ -16,26 +16,29 @@ const useStyles = makeStyles(() => ({
 	latestCardMedia: { height: 140 }
 }));
 
-function NewsCard() {
+function NewsCard(latestNews) {
 	const classes = useStyles();
 	const history = useHistory();
+	console.log('News card rendered');
 	return (
 		<Card className={classes.latestCard}>
 			<CardActionArea>
 				<CardMedia
 					className={classes.latestCardMedia}
 					component="img"
-					alt="Contemplative Reptile"
+					alt={latestNews.latestNews.heading ? latestNews.latestNews.heading : 'Latest News'}
 					height="140"
-					image={require('../../images/bulletin-article.jpg')}
-					title="Contemplative Reptile"
+					image={`${latestNews.latestNews.news_image
+						? latestNews.latestNews.news_image
+						: require('../../images/bulletin-news.png')} `}
+					title={latestNews.latestNews.heading ? latestNews.latestNews.heading : 'Latest News'}
 				/>
 				<CardContent>
 					<Typography gutterBottom variant="h5" component="h2">
-						news heading
+						{latestNews.latestNews.heading ? latestNews.latestNews.heading : ''}
 					</Typography>
 					<Typography variant="body2" color="textSecondary" component="p">
-						news ub heading
+						{latestNews.latestNews.sub_heading ? latestNews.latestNews.sub_heading : ''}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
@@ -44,7 +47,9 @@ function NewsCard() {
 					size="small"
 					color="primary"
 					onClick={() => {
-						history.push('/bulletin/news/heading');
+						history.push(
+							`/bulletin/news/${latestNews.latestNews.heading ? latestNews.latestNews.heading : ''}`
+						);
 					}}
 				>
 					Read More
@@ -54,4 +59,4 @@ function NewsCard() {
 	);
 }
 
-export default NewsCard;
+export default React.memo(NewsCard);

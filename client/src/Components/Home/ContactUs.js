@@ -24,15 +24,15 @@ function ContactUs() {
 				</Grid>
 				<Grid item>
 					<Typography variant="body1">
-						With our unmatched national network of lawyers and consiltants, we support our clients whenever
-						they do business.
+						With our unmatched national network of lawyers and consultants, we support our clients whenever
+						they need legal assistance.
 					</Typography>
 				</Grid>
 				<Grid item>
 					<Button
 						variant="outlined"
 						onClick={() => {
-							history.push('/client/contact-us');
+							history.push('/client-tools#contact-us');
 						}}
 					>
 						Discover more

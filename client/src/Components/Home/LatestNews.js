@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
 	Container,
 	Button,
@@ -14,6 +14,7 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import NewsCard from '../Bulletin/NewsCard';
 import styles from './home.module.css';
 import { useHistory } from 'react-router-dom';
+import Axios from 'axios';
 
 const useStyles = makeStyles(() => ({
 	latesNewsGridContainer: { padding: '20px 0px' },
@@ -24,8 +25,22 @@ const useStyles = makeStyles(() => ({
 
 function LatestNews() {
 	const classes = useStyles();
-	const latestNews = [ 1, 2, 3, 4 ];
 	const history = useHistory();
+	const [ news, setNews ] = useState([]);
+
+	useEffect(() => {
+		Axios.get('http://127.0.0.1:8000/bulletin/news/?page=1&&page_size=4')
+			.then((res) => {
+				if (res.status === 200) {
+					setNews(res.data.results);
+				} else {
+					console.log('data fetch error');
+				}
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
 
 	return (
 		<Container className={styles.latestNews}>
@@ -73,9 +88,9 @@ function LatestNews() {
 			</Grid>
 			<div className={styles.latestNewsCards}>
 				<Grid container justifu="center" spacing={3}>
-					{latestNews.map((news) => (
-						<Grid xs={12} sm={6} align="center" item key={news}>
-							<NewsCard />
+					{news.map((latestNews) => (
+						<Grid xs={12} sm={6} align="center" item key={latestNews.id}>
+							<NewsCard latestNews={latestNews} />
 						</Grid>
 					))}
 				</Grid>

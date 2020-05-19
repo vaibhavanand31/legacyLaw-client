@@ -1,6 +1,6 @@
 .background {
 	max-width: 100%;
-	max-height: 400px;
+	max-height: 280px;
 	object-fit: cover;
 }
 @media only screen and (max-width: 896px) {
@@ -51,6 +51,9 @@
 }
 
 .clientSection {
-	min-height: 100vh;
 	padding: 40px;
+}
+
+.addressSection {
+	padding: 30px;
 }

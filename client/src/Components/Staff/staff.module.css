@@ -53,8 +53,9 @@
 	padding: 10px;
 }
 
-.main {
+.advocatesMain {
 	padding: 30px;
+	min-height: 80vh;
 }
 .pageTitle {
 	padding: 20px;

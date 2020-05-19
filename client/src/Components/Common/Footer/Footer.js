@@ -7,7 +7,9 @@ function Footer() {
 	return (
 		<div position="static" className={styles.footer}>
 			<Grid container variant="column" justify="center" alignItems="center">
-				<Typography variant="overline">© Copyright 2020, ***To be edited*** | All Rights Reserved.</Typography>
+				<Typography variant="overline">
+					© Copyright 2020, Singh and Singh Legum Gates | All Rights Reserved.
+				</Typography>
 			</Grid>
 		</div>
 	);

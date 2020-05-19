@@ -35,9 +35,9 @@ function Career() {
 				</Grid>
 				<Grid item>
 					<Typography variant="body1">
-						The world of law is evolving. Seize the opportunities. At Allen & Overy, we work at the
-						forefront of our profession, breaking new ground and shaping an industry. Now, we want you to
-						join us.
+						The world of law is evolving. Seize the opportunities. At The Legacy Law, we work at the
+						forefront of our profession, breaking new grounds and providing best services to our clients at
+						various endeavour. Now, we want you to join us.
 					</Typography>
 				</Grid>
 				<Grid item>

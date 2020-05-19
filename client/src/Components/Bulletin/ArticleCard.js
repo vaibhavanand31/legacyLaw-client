@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
 	latestCardMedia: { height: 140 }
 }));
 
-function ArticleCard() {
+function ArticleCard(article) {
 	const classes = useStyles();
 	const history = useHistory();
 	return (
@@ -25,17 +25,19 @@ function ArticleCard() {
 				<CardMedia
 					className={classes.latestCardMedia}
 					component="img"
-					alt="Contemplative Reptile"
+					alt={article.article.title ? article.article.title : 'title'}
 					height="140"
-					image={require('../../images/bulletin-article.jpg')}
-					title="Contemplative Reptile"
+					image={`${article.article.article_image
+						? article.article.article_image
+						: require('../../images/bulletin-article.jpg')}`}
+					title={article.article.title ? article.article.title : 'title'}
 				/>
 				<CardContent>
 					<Typography gutterBottom variant="h5" component="h2">
-						heading
+						{article.article.title ? article.article.title : ''}
 					</Typography>
 					<Typography variant="body2" color="textSecondary" component="p">
-						writer name
+						{article.article.writer ? article.article.writer : ''}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
@@ -44,7 +46,7 @@ function ArticleCard() {
 					size="small"
 					color="primary"
 					onClick={() => {
-						history.push('/bulletin/articles/title');
+						history.push(`/bulletin/articles/${article.article.title ? article.article.title : ''}`);
 					}}
 				>
 					Read More

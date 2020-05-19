@@ -22,10 +22,20 @@ const useStyles = makeStyles((props) => ({
 	}
 }));
 
-function Practise() {
+function Practise(practiseArea) {
 	const classes = useStyles();
-	const specialization = [ 1, 3, 2, 4, 6 ];
-
+	const specializations = [
+		{ id: 1, specialization: practiseArea.practiseArea.specialization_1 },
+		{ id: 2, specialization: practiseArea.practiseArea.specialization_2 },
+		{ id: 3, specialization: practiseArea.practiseArea.specialization_3 },
+		{ id: 4, specialization: practiseArea.practiseArea.specialization_4 },
+		{ id: 5, specialization: practiseArea.practiseArea.specialization_5 },
+		{ id: 6, specialization: practiseArea.practiseArea.specialization_6 },
+		{ id: 7, specialization: practiseArea.practiseArea.specialization_7 },
+		{ id: 8, specialization: practiseArea.practiseArea.specialization_8 },
+		{ id: 9, specialization: practiseArea.practiseArea.specialization_9 },
+		{ id: 10, specialization: practiseArea.practiseArea.specialization_10 }
+	];
 	return (
 		<div>
 			<ExpansionPanel>
@@ -34,23 +44,23 @@ function Practise() {
 					id="panel1a-header"
 					aria-controls="panel1a-content"
 				>
-					<Typography variant="h6">Header</Typography>
+					<Typography variant="h6">
+						{practiseArea.practiseArea.title ? practiseArea.practiseArea.title : ''}
+					</Typography>
 				</ExpansionPanelSummary>
 				<ExpansionPanelDetails>
 					<Grid container direction="column">
 						<Grid item>
 							<Typography variant="body2">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-								sit amet blandit leo lobortis eget.
+								{practiseArea.practiseArea.discription ? practiseArea.practiseArea.discription : ''}
 							</Typography>
 						</Grid>
 						<Grid item>
 							<Divider className={classes.divider} />
 						</Grid>
-
-						{specialization.map((specialization) => (
-							<Grid key={specialization} item>
-								<Typography variant="caption">specialization {specialization}</Typography>
+						{specializations.map((e) => (
+							<Grid key={e.id} item>
+								<Typography variant="caption">{e.specialization}</Typography>
 							</Grid>
 						))}
 					</Grid>
