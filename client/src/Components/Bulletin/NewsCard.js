@@ -30,7 +30,7 @@ function NewsCard(latestNews) {
 					height="140"
 					image={`${latestNews.latestNews.news_image
 						? latestNews.latestNews.news_image
-						: require('../../images/bulletin-news.png')} `}
+						: require('../../images/bulletin-news.jpg')} `}
 					title={latestNews.latestNews.heading ? latestNews.latestNews.heading : 'Latest News'}
 				/>
 				<CardContent>

@@ -1,5 +1,16 @@
 import React, { useState, useRef } from 'react';
-import { Toolbar, Grid, Button, Popper, Grow, Paper, ClickAwayListener, MenuList, MenuItem } from '@material-ui/core';
+import {
+	Tooltip,
+	Toolbar,
+	Grid,
+	Button,
+	Popper,
+	Grow,
+	Paper,
+	ClickAwayListener,
+	MenuList,
+	MenuItem
+} from '@material-ui/core';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { useHistory } from 'react-router-dom';
@@ -71,7 +82,7 @@ function HeaderSmUp(props) {
 								history.push('/advocates');
 							}}
 						>
-							People
+							People &nbsp;
 						</Button>
 					</Grid>
 					<Grid item>
@@ -145,16 +156,17 @@ function HeaderSmUp(props) {
 								history.push('/client-tools');
 							}}
 						>
-							Client Tools
+							Contact Us
 						</Button>
 					</Grid>
 					<Grid item>
-						<a href="tel:+91 99712 03797" style={{ textDecoration: 'none', color: 'inherit' }}>
-							<Button color="inherit">
-								<CallIcon />
-								+91 99712 03797
-							</Button>
-						</a>
+						<Tooltip title="Call +91 99712 03797">
+							<a href="tel:+91 99712 03797" style={{ textDecoration: 'none', color: 'inherit' }}>
+								<Button color="inherit">
+									<CallIcon />
+								</Button>
+							</a>
+						</Tooltip>
 					</Grid>
 				</Grid>
 			</Toolbar>

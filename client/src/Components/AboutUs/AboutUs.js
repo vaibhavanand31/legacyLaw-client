@@ -28,7 +28,7 @@ function AboutUs() {
 	const startYear = 1981;
 
 	return (
-		<div>
+		<div className={styles.aboutusMain}>
 			<div className={styles.background}>
 				<img className={styles.banner} src={require('../../images/aboutUsNew1.jpg')} alt="background" />
 			</div>

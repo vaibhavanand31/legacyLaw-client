@@ -55,7 +55,7 @@
 
 .advocatesMain {
 	padding: 30px;
-	min-height: 80vh;
+	min-height: 88vh;
 }
 .pageTitle {
 	padding: 20px;
@@ -67,7 +67,7 @@
 
 .advocateMain {
 	padding: 60px;
-	min-height: 90vh;
+	min-height: 88vh;
 }
 
 @media only screen and (max-width: 896px) {

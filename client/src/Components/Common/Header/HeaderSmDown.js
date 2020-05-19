@@ -94,7 +94,7 @@ function HeaderSmDown(props) {
 										<IconButton
 											onClick={() => {
 												contactusMenuHandelClose();
-												history.push('/client-tools#contact-us');
+												history.push('/client-tools');
 											}}
 											className={classes.customHoverFocus}
 										>
@@ -116,7 +116,7 @@ function HeaderSmDown(props) {
 										</a>
 									</Tooltip>
 								</Grid>
-								<Grid item xs>
+								{/* <Grid item xs>
 									<Tooltip title="Appointment">
 										<IconButton
 											onClick={() => {
@@ -128,7 +128,7 @@ function HeaderSmDown(props) {
 											<CalendarTodayRoundedIcon />
 										</IconButton>
 									</Tooltip>
-								</Grid>
+								</Grid> */}
 							</Grid>
 						</StyledMenu>
 					</Grid>

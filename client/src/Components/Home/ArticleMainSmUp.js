@@ -23,7 +23,9 @@ function ArticleMainSmUp() {
 	return (
 		<Grid
 			className={styles.mainArticle}
-			style={{ backgroundImage: `url(${mainArticle.news_image ? mainArticle.news_image : ''})` }}
+			style={{
+				backgroundImage: `url(${mainArticle.news_image ? mainArticle.news_image : ''})`
+			}}
 			container
 			direction="row"
 			justify="center"
@@ -44,7 +46,7 @@ function ArticleMainSmUp() {
 				<Grid item className={styles.exporeButton}>
 					<Button
 						variant="contained"
-						color="primary"
+						color="default"
 						onClick={() => history.push(`bulletin/news/${mainArticle.heading ? mainArticle.heading : ''}`)}
 					>
 						Explore More

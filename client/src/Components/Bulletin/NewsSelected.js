@@ -44,7 +44,7 @@ function NewsSelected(heading) {
 			<div className={styles.background}>
 				<img
 					className={styles.banner}
-					src={mainNews.news_image ? mainNews.news_image : require('../../images/bulletin-news.png')}
+					src={mainNews.news_image ? mainNews.news_image : require('../../images/bulletin-news.jpg')}
 					alt="background"
 				/>
 			</div>

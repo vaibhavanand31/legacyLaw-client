@@ -6,13 +6,16 @@
 @media only screen and (max-width: 992px) {
 	.mainArticle {
 		color: white;
+		background: transparent;
+		background-color: black;
 		height: 100%;
 		width: 100%;
 		min-height: 91vh;
-		background-color: transparent;
 		background-repeat: no-repeat;
-		background-position: center;
+		background-position: 50% 50%;
+		background-attachment: fixed;
 		background-size: cover;
+		text-shadow: 1px 1px 10px black, 1px 1px 10px black, 1px 1px 10px black, 1px 1px 10px black;
 	}
 }
 
@@ -123,9 +126,10 @@
 	width: 100%;
 	background-image: url('../../images/contact_us.jpg');
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: 75% 50%;
 	background-attachment: fixed;
-	background-size: 100% 100%;
+	color: black;
+	background-size: cover;
 }
 
 .contactUsInner {
@@ -151,8 +155,9 @@
 	width: 100%;
 	background-image: url('../../images/career-background.jpg');
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: 50% 50%;
 	background-attachment: fixed;
+	background-size: cover;
 	color: ivory;
 }
 
