@@ -73,7 +73,7 @@ function LatestNews() {
 				alignItems="center"
 			>
 				<Grid className={classes.latesNewsGridItem} item>
-					<TextField id="outlined-search" label="Search field" type="search" variant="outlined" />
+					{/* <TextField id="outlined-search" label="Search field" type="search" variant="outlined" /> */}
 				</Grid>
 				<Hidden xsDown>
 					<Grid className={classes.latesNewsGridItem} item>
