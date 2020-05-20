@@ -103,7 +103,7 @@ function HeaderSmDown(props) {
 									</Tooltip>
 								</Grid>
 								<Grid item xs>
-									<Tooltip title="Call">
+									<Tooltip title="Call +91 99712 03797">
 										<a href="tel:+91 99712 03797" style={{ textDecoration: 'none' }}>
 											<IconButton
 												onClick={() => {

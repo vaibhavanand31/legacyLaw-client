@@ -46,7 +46,7 @@ function ArticleMainSmDown() {
 						color="primary"
 						onClick={() => history.push(`bulletin/news/${mainArticle.heading ? mainArticle.heading : ''}`)}
 					>
-						Explore More
+						Read Full Story
 					</Button>
 				</Grid>
 			</Grid>

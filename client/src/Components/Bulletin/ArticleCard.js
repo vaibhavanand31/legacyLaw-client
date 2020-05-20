@@ -7,9 +7,18 @@ import {
 	Typography,
 	CardContent,
 	CardActions,
-	makeStyles
+	makeStyles,
+	Grid
 } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import {
+	FacebookIcon,
+	FacebookShareButton,
+	LinkedinShareButton,
+	LinkedinIcon,
+	WhatsappShareButton,
+	WhatsappIcon
+} from 'react-share';
 
 const useStyles = makeStyles(() => ({
 	latestCard: { maxWidth: 345 },
@@ -42,15 +51,45 @@ function ArticleCard(article) {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				<Button
-					size="small"
-					color="primary"
-					onClick={() => {
-						history.push(`/bulletin/articles/${article.article.title ? article.article.title : ''}`);
-					}}
-				>
-					Read More
-				</Button>
+				<Grid container direction="row" justify="space-between" alignItems="center" spacing={2}>
+					<Grid item>
+						<Button
+							size="small"
+							color="primary"
+							onClick={() => {
+								history.push(
+									`/bulletin/articles/${article.article.title ? article.article.title : ''}`
+								);
+							}}
+						>
+							Explore More
+						</Button>
+					</Grid>
+					<Grid item>
+						<FacebookShareButton
+							style={{ padding: '0px 5px' }}
+							quote={article.article.title}
+							url={`https://thelegacylaw.com/bulletin/articles/${article.article.title}`}
+						>
+							<FacebookIcon size={30} round={true} />
+						</FacebookShareButton>
+						<LinkedinShareButton
+							style={{ padding: '0px 5px' }}
+							title={article.article.title}
+							summary={article.article.title}
+							url={`https://thelegacylaw.com/bulletin/articles/${article.article.title}`}
+						>
+							<LinkedinIcon size={30} round={true} />
+						</LinkedinShareButton>
+						<WhatsappShareButton
+							style={{ padding: '0px 5px' }}
+							title={article.article.title}
+							url={`https://thelegacylaw.com/bulletin/articles/${article.article.title}`}
+						>
+							<WhatsappIcon size={30} round={true} />
+						</WhatsappShareButton>
+					</Grid>
+				</Grid>
 			</CardActions>
 		</Card>
 	);

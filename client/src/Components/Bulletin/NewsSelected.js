@@ -12,7 +12,7 @@ function NewsSelected(heading) {
 		() => {
 			let url = '';
 			window.scrollTo({
-				top: 1,
+				top: 104,
 				left: 0,
 				behavior: 'smooth'
 			});

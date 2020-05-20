@@ -9,6 +9,7 @@ import {
 	CardActions,
 	makeStyles
 } from '@material-ui/core';
+import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
@@ -59,7 +60,7 @@ function AdvocatesCard(people) {
 						history.push(`/advocate/${people.people.slug_field ? people.people.slug_field : ''}`);
 					}}
 				>
-					View Profile
+					View Profile <ArrowRightAlt />
 				</Button>
 			</CardActions>
 		</Card>

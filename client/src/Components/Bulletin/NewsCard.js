@@ -7,9 +7,18 @@ import {
 	Typography,
 	CardContent,
 	CardActions,
-	makeStyles
+	makeStyles,
+	Grid
 } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import {
+	FacebookIcon,
+	FacebookShareButton,
+	LinkedinShareButton,
+	LinkedinIcon,
+	WhatsappShareButton,
+	WhatsappIcon
+} from 'react-share';
 
 const useStyles = makeStyles(() => ({
 	latestCard: { maxWidth: 345 },
@@ -19,7 +28,6 @@ const useStyles = makeStyles(() => ({
 function NewsCard(latestNews) {
 	const classes = useStyles();
 	const history = useHistory();
-	console.log('News card rendered');
 	return (
 		<Card className={classes.latestCard}>
 			<CardActionArea>
@@ -43,17 +51,47 @@ function NewsCard(latestNews) {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				<Button
-					size="small"
-					color="primary"
-					onClick={() => {
-						history.push(
-							`/bulletin/news/${latestNews.latestNews.heading ? latestNews.latestNews.heading : ''}`
-						);
-					}}
-				>
-					Read More
-				</Button>
+				<Grid container direction="row" justify="space-between" alignItems="center" spacing={2}>
+					<Grid item>
+						<Button
+							size="small"
+							color="primary"
+							onClick={() => {
+								history.push(
+									`/bulletin/news/${latestNews.latestNews.heading
+										? latestNews.latestNews.heading
+										: ''}`
+								);
+							}}
+						>
+							Read Full Story
+						</Button>
+					</Grid>
+					<Grid item>
+						<FacebookShareButton
+							style={{ padding: '0px 5px' }}
+							quote={latestNews.latestNews.heading}
+							url={`https://thelegacylaw.com/bulletin/news/${latestNews.latestNews.heading}`}
+						>
+							<FacebookIcon size={30} round={true} />
+						</FacebookShareButton>
+						<LinkedinShareButton
+							style={{ padding: '0px 5px' }}
+							title={latestNews.latestNews.heading}
+							summary={latestNews.latestNews.sub_heading}
+							url={`https://thelegacylaw.com/bulletin/news/${latestNews.latestNews.heading}`}
+						>
+							<LinkedinIcon size={30} round={true} />
+						</LinkedinShareButton>
+						<WhatsappShareButton
+							style={{ padding: '0px 5px' }}
+							title={latestNews.latestNews.heading}
+							url={`https://thelegacylaw.com/bulletin/news/${latestNews.latestNews.heading}`}
+						>
+							<WhatsappIcon size={30} round={true} />
+						</WhatsappShareButton>
+					</Grid>
+				</Grid>
 			</CardActions>
 		</Card>
 	);

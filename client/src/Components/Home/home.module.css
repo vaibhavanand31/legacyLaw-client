@@ -1,16 +1,17 @@
 .mainArticle {
 	height: 100%;
-	min-height: 90vh;
+	min-height: 93vh;
+	background-color: #eeeeee;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
 	.mainArticle {
 		color: white;
 		background: transparent;
 		background-color: black;
 		height: 100%;
 		width: 100%;
-		min-height: 91vh;
+		min-height: 93vh;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-attachment: fixed;
@@ -24,7 +25,7 @@
 	max-width: 500px;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1024px) {
 	.content {
 		padding: 10px;
 		width: 100%;
@@ -144,7 +145,7 @@
 	}
 }
 
-@media only screen and (min-width: 986px) {
+@media only screen and (min-width: 1024px) {
 	.contactUsInner {
 		padding-left: 200px;
 	}
@@ -173,7 +174,7 @@
 	}
 }
 
-@media only screen and (min-width: 986px) {
+@media only screen and (min-width: 1024px) {
 	.careerInner {
 		padding-left: 200px;
 	}

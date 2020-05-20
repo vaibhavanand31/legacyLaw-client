@@ -6,7 +6,8 @@ import useInput from '../hooks/useInput';
 const useStyles = makeStyles((theme) => ({
 	formControl: {
 		'& > *': {
-			margin: theme.spacing(1)
+			margin: theme.spacing(1),
+			width: '100%'
 		}
 	}
 }));
@@ -52,7 +53,7 @@ function ContactUs() {
 			</Grid>
 			<form onSubmit={handleSubmit} className={styles.applyNowForm} noValidate autoComplete="off">
 				<Grid container direction="column" justify="center" alignItems="center">
-					<Grid item container direction="row" justify="center" alignItems="center">
+					<Grid item container direction="row" justify="center" alignItems="center" spacing={1}>
 						<Grid item>
 							<FormControl className={classes.formControl}>
 								<TextField

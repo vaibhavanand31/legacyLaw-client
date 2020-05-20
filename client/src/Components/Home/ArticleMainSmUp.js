@@ -51,10 +51,10 @@ function ArticleMainSmUp() {
 				<Grid item className={styles.exporeButton}>
 					<Button
 						variant="contained"
-						color="default"
+						color="primary"
 						onClick={() => history.push(`bulletin/news/${mainArticle.heading ? mainArticle.heading : ''}`)}
 					>
-						Explore More
+						Read Full Story
 					</Button>
 				</Grid>
 			</Grid>
