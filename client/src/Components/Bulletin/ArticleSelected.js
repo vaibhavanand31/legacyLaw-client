@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Paper, Typography } from '@material-ui/core';
 import styles from './bulletin.module.css';
 import axios from 'axios';
+import { BackendUrl } from '../../App';
 
 function ArticleSelected(title) {
 	const [ mainArticle, setMainArticle ] = useState({});
+	const baseUrl = useContext(BackendUrl);
 
 	useEffect(
 		() => {
@@ -15,7 +17,7 @@ function ArticleSelected(title) {
 				behavior: 'smooth'
 			});
 			if (title.title) {
-				url = `http://127.0.0.1:8000/bulletin/article/${title.title}`;
+				url = `${baseUrl}/bulletin/article/${title.title}`;
 				axios
 					.get(url)
 					.then((response) => {
@@ -25,7 +27,7 @@ function ArticleSelected(title) {
 						console.log(error);
 					});
 			} else {
-				url = 'http://127.0.0.1:8000/bulletin/article/?page=1&page_size=1';
+				url = `${baseUrl}/bulletin/article/?page=1&page_size=1`;
 				axios
 					.get(url)
 					.then((response) => {
@@ -36,7 +38,7 @@ function ArticleSelected(title) {
 					});
 			}
 		},
-		[ title ]
+		[ title, baseUrl ]
 	);
 	return (
 		<div>

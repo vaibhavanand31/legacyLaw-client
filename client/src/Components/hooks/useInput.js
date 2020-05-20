@@ -48,7 +48,7 @@ function useInput(initialValue) {
 			case 'phone':
 				if (value.length === 0) {
 					setFormError([ 'Phone number cannot be empty' ]);
-				} else if (/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(value) === false) {
+				} else if (/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(value) === false) {
 					setFormError([ 'Invalid Phone number' ]);
 				} else {
 					setFormError([]);
@@ -81,7 +81,7 @@ function useInput(initialValue) {
 			case 'exp':
 				if (value.length === 0) {
 					setFormError([ 'Experience cannot be empty' ]);
-				} else if (/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(value) === false) {
+				} else if (/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(value) === false) {
 					setFormError([ 'Experience must be years' ]);
 				} else {
 					setFormError([]);

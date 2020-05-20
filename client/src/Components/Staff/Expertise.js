@@ -1,22 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Paper, Typography, Grid } from '@material-ui/core';
 import Practise from './Practise';
 import styles from './staff.module.css';
 import axios from 'axios';
+import { BackendUrl } from '../../App';
 
 function Expertise() {
+	const baseUrl = useContext(BackendUrl);
 	const [ practiseAreas, setPractiseAreas ] = useState([]);
 
-	useEffect(() => {
-		axios
-			.get('http://127.0.0.1:8000/panda/practicing-area/')
-			.then((response) => {
-				setPractiseAreas(response.data.results);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
+	useEffect(
+		() => {
+			axios
+				.get(`${baseUrl}/panda/practicing-area/`)
+				.then((response) => {
+					setPractiseAreas(response.data.results);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		[ baseUrl ]
+	);
 	return (
 		<div className={styles.staffMain}>
 			<div className={styles.background}>

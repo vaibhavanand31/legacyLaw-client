@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
 	Container,
 	Button,
@@ -15,6 +15,7 @@ import NewsCard from '../Bulletin/NewsCard';
 import styles from './home.module.css';
 import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
+import { BackendUrl } from '../../App';
 
 const useStyles = makeStyles(() => ({
 	latesNewsGridContainer: { padding: '20px 0px' },
@@ -24,23 +25,27 @@ const useStyles = makeStyles(() => ({
 }));
 
 function LatestNews() {
+	const baseUrl = useContext(BackendUrl);
 	const classes = useStyles();
 	const history = useHistory();
 	const [ news, setNews ] = useState([]);
 
-	useEffect(() => {
-		Axios.get('http://127.0.0.1:8000/bulletin/news/?page=1&&page_size=4')
-			.then((res) => {
-				if (res.status === 200) {
-					setNews(res.data.results);
-				} else {
-					console.log('data fetch error');
-				}
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
+	useEffect(
+		() => {
+			Axios.get(`${baseUrl}/bulletin/news/?page=1&&page_size=4`)
+				.then((res) => {
+					if (res.status === 200) {
+						setNews(res.data.results);
+					} else {
+						console.log('data fetch error');
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		[ baseUrl ]
+	);
 
 	return (
 		<Container className={styles.latestNews}>

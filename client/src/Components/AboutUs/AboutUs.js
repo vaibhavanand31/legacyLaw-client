@@ -1,26 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Paper, Typography, Grid } from '@material-ui/core';
 import styles from './aboutUs.module.css';
 import ServiceAddress from './ServiceAddress';
 import axios from 'axios';
+import { BackendUrl } from '../../App';
 
 function AboutUs() {
 	const [ addresses, setAddress ] = useState([]);
+	const baseUrl = useContext(BackendUrl);
 
-	useEffect(() => {
-		axios
-			.get('http://127.0.0.1:8000/about-us/service-address/')
-			.then((response) => {
-				if (response.status === 200) {
-					setAddress(response.data.results);
-				} else {
-					console.log('data fetch error');
-				}
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
+	useEffect(
+		() => {
+			axios
+				.get(`${baseUrl}/about-us/service-address/`)
+				.then((response) => {
+					if (response.status === 200) {
+						setAddress(response.data.results);
+					} else {
+						console.log('data fetch error');
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		[ baseUrl ]
+	);
 
 	var today = new Date();
 	var currentYear = today.getFullYear();

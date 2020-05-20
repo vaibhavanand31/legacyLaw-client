@@ -1,22 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Typography, Grid } from '@material-ui/core';
 import AdvocatesCard from './AdvocatesCard';
 import style from './staff.module.css';
 import axios from 'axios';
+import { BackendUrl } from '../../App';
 
 function Staff() {
+	const baseUrl = useContext(BackendUrl);
 	const [ peoples, setPeoples ] = useState([]);
 
-	useEffect(() => {
-		axios
-			.get('http://127.0.0.1:8000/panda/partners/')
-			.then((response) => {
-				setPeoples(response.data.results);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
+	useEffect(
+		() => {
+			axios
+				.get(`${baseUrl}/panda/partners/`)
+				.then((response) => {
+					setPeoples(response.data.results);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		[ baseUrl ]
+	);
 
 	return (
 		<div className={style.advocatesMain}>

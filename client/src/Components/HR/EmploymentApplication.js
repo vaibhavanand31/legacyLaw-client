@@ -116,8 +116,17 @@ export default function EmploymentApplication() {
 				lname.length !== 0 &&
 				exp.length !== 0
 			) {
-				console.log('i am ok');
+				applyFormDetails.fname = fname;
+				applyFormDetails.lname = lname;
+				applyFormDetails.email = email;
+				applyFormDetails.phone = phone;
+				applyFormDetails.exp = exp;
 				setErrorMessage('');
+				resetFname();
+				resetLname();
+				resetEmail();
+				resetPhone();
+				resetExp();
 			} else {
 				setErrorMessage('Please fill all required fields');
 			}
@@ -258,6 +267,9 @@ export default function EmploymentApplication() {
 			</section>
 			<section ref={contactRef} className={styles.applyNow}>
 				<Typography variant="h4"> Apply Now</Typography>
+				<Typography variant="caption" style={{ color: 'blue' }}>
+					{errorMessage}
+				</Typography>
 				<form className={styles.applyNowForm} noValidate autoComplete="off" onSubmit={handelApplYNowSubmit}>
 					<FormControl className={classes.formControl}>
 						<TextField

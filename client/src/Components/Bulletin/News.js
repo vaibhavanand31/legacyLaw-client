@@ -1,30 +1,35 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { Grid } from '@material-ui/core';
 import styles from './bulletin.module.css';
 import NewsCard from './NewsCard';
 import NewsSelected from './NewsSelected';
 import axios from 'axios';
 import { useRouteMatch } from 'react-router-dom';
+import { BackendUrl } from '../../App';
 
 function News() {
+	const baseUrl = useContext(BackendUrl);
 	const [ news, setNews ] = useState([]);
 	const match = useRouteMatch();
 	const heading = match.params.heading;
 
-	useEffect(() => {
-		axios
-			.get('http://127.0.0.1:8000/bulletin/news/')
-			.then((res) => {
-				if (res.status === 200) {
-					setNews(res.data.results);
-				} else {
-					console.log('data fetch error');
-				}
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
+	useEffect(
+		() => {
+			axios
+				.get(`${baseUrl}/bulletin/news/`)
+				.then((res) => {
+					if (res.status === 200) {
+						setNews(res.data.results);
+					} else {
+						console.log('data fetch error');
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		[ baseUrl ]
+	);
 
 	const allNews = useMemo(
 		() => {
@@ -32,7 +37,6 @@ function News() {
 		},
 		[ news ]
 	);
-	console.log('News rendered');
 
 	return (
 		<div>

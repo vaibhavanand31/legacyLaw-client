@@ -1,25 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Grid, Button, Typography } from '@material-ui/core';
 import styles from './home.module.css';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { BackendUrl } from '../../App';
 
 function ArticleMainSmDown() {
+	const baseUrl = useContext(BackendUrl);
 	const history = useHistory();
 	const [ mainArticle, setMainArticle ] = useState({});
 
-	useEffect(() => {
-		axios
-			.get('http://127.0.0.1:8000/bulletin/news/?page=1&page_size=1')
-			.then((res) => {
-				if (res.status === 200) {
-					setMainArticle(res.data.results[0]);
-				} else {
-					console.log('error geting data from sever.');
-				}
-			})
-			.catch((error) => console.log(error));
-	}, []);
+	useEffect(
+		() => {
+			axios
+				.get(`${baseUrl}/bulletin/news/?page=1&page_size=1`)
+				.then((res) => {
+					if (res.status === 200) {
+						setMainArticle(res.data.results[0]);
+					} else {
+						console.log('error geting data from sever.');
+					}
+				})
+				.catch((error) => console.log(error));
+		},
+		[ baseUrl ]
+	);
 
 	return (
 		<Grid className={styles.mainArticle} container direction="row" justify="center" alignItems="center">

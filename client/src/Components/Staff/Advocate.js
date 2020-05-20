@@ -1,27 +1,32 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import { Grid, Typography, IconButton } from '@material-ui/core';
 import style from './staff.module.css';
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
+import { BackendUrl } from '../../App';
 
 function Advocate() {
+	const baseUrl = useContext(BackendUrl);
 	const match = useRouteMatch();
 	const history = useHistory();
 	// const partnerNameRef = match.params.name;
 	const partnerNameRef = useRef(match.params.name);
 	const [ parnerDetails, setPartnerDetails ] = useState({});
 
-	useEffect(() => {
-		axios
-			.get(`http://127.0.0.1:8000/panda/partner/${partnerNameRef.current}/`)
-			.then((response) => {
-				setPartnerDetails(response.data);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
+	useEffect(
+		() => {
+			axios
+				.get(`${baseUrl}/panda/partner/${partnerNameRef.current}/`)
+				.then((response) => {
+					setPartnerDetails(response.data);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		[ baseUrl ]
+	);
 
 	return (
 		<div className={style.advocateMain}>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './client.module.css';
 import { Paper, Typography, Grid } from '@material-ui/core';
 // import Appointment from './Appointment';
@@ -6,24 +6,29 @@ import ContactUs from './ContactUs';
 import ServiceAddress from '../AboutUs/ServiceAddress';
 // import Testimonial from './Testimonial';
 import axios from 'axios';
+import { BackendUrl } from '../../App';
 
 function ClientTools() {
+	const baseUrl = useContext(BackendUrl);
 	const [ addresses, setAddress ] = useState([]);
 
-	useEffect(() => {
-		axios
-			.get('http://127.0.0.1:8000/about-us/service-address/')
-			.then((response) => {
-				if (response.status === 200) {
-					setAddress(response.data.results);
-				} else {
-					console.log('data fetch error');
-				}
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
+	useEffect(
+		() => {
+			axios
+				.get(`${baseUrl}/about-us/service-address/`)
+				.then((response) => {
+					if (response.status === 200) {
+						setAddress(response.data.results);
+					} else {
+						console.log('data fetch error');
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		[ baseUrl ]
+	);
 
 	return (
 		<div>

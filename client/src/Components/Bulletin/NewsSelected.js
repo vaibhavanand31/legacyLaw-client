@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Paper, Typography } from '@material-ui/core';
 import styles from './bulletin.module.css';
 import axios from 'axios';
+import { BackendUrl } from '../../App';
 
 function NewsSelected(heading) {
+	const baseUrl = useContext(BackendUrl);
 	const [ mainNews, setMainNews ] = useState({});
 
 	useEffect(
@@ -15,7 +17,7 @@ function NewsSelected(heading) {
 				behavior: 'smooth'
 			});
 			if (heading.heading) {
-				url = `http://127.0.0.1:8000/bulletin/news/${heading.heading}`;
+				url = `${baseUrl}/bulletin/news/${heading.heading}`;
 				axios
 					.get(url)
 					.then((response) => {
@@ -25,7 +27,7 @@ function NewsSelected(heading) {
 						console.log(error);
 					});
 			} else {
-				url = 'http://127.0.0.1:8000/bulletin/news/?page=1&page_size=1';
+				url = `${baseUrl}/bulletin/news/?page=1&page_size=1`;
 				axios
 					.get(url)
 					.then((response) => {
@@ -36,7 +38,7 @@ function NewsSelected(heading) {
 					});
 			}
 		},
-		[ heading ]
+		[ heading, baseUrl ]
 	);
 	console.log('selected News rendered');
 	return (
