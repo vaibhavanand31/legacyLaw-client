@@ -44,8 +44,9 @@ function AboutUs() {
 					</div>
 					<div className={styles.decsriptionContainer}>
 						<Typography variant="body1">
-							The Legacy Law takes forward the professional lineage of Sh. Jatinder Singh Advocate, as a
-							Founding Partner of the firm, who brings an illustrious experience of{' '}
+							The Legacy Law takes forward the professional lineage of{' '}
+							<span style={{ fontWeight: 'bold' }}>Sh. Jatinder Singh</span>, as a Founding Partner of the
+							firm, who brings an illustrious experience of{' '}
 							<span style={{ fontWeight: 'bold' }}>{currentYear - startYear}</span> years in the
 							profession.
 						</Typography>

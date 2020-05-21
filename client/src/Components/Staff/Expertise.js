@@ -35,11 +35,11 @@ function Expertise() {
 					<div className={styles.decsriptionContainer}>
 						<Typography variant="body1">
 							The Legacy Law provides sophisticated guidance and legal counsel to its clients that face
-							complex environmental law problems. Our attorneys are at the top of the industry and are
-							well-positioned to help across the India resolve day-to-day and long-term challenges. Our
-							lawyers leverage extensive backgrounds and experience in industry, law and science to help
-							our clients’ achieve their most critical objectives. We are passionate about the work we do
-							and are well-recognized for our dynamic advocacy and unwavering dedication to our clients.
+							complex legal problems. Our attorneys are at the top of the industry and are well-positioned
+							to help across the India resolve day-to-day and long-term challenges. Our lawyers leverage
+							extensive backgrounds and experience in industry, law and science to help our clients’
+							achieve their most critical objectives. We are passionate about the work we do and are
+							well-recognized for our dynamic advocacy and unwavering dedication to our clients.
 						</Typography>
 					</div>
 				</Paper>
