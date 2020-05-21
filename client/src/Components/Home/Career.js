@@ -35,9 +35,9 @@ function Career() {
 				</Grid>
 				<Grid item>
 					<Typography variant="body1">
-						The world of law is evolving. Seize the opportunities. At The Legacy Law, we work at the
-						forefront of our profession, breaking new grounds and providing best services to our clients at
-						various endeavour. Now, we want you to join us.
+						Welcome to a bold new way of working. Colleagues building new levels of confidence. Clients
+						finding new levels of trust.We’re certain you’ve never experienced collaboration like this
+						before. But then, you won’t have experienced a law firm like The Legacy Law either.
 					</Typography>
 				</Grid>
 				<Grid item>

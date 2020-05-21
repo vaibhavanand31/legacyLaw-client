@@ -12,10 +12,10 @@ import Career from './Career';
 function Home() {
 	return (
 		<div>
-			<Hidden mdDown>
+			<Hidden smDown>
 				<ArticleMainSmDown />
 			</Hidden>
-			<Hidden lgUp>
+			<Hidden mdUp>
 				<ArticleMainSmUp />
 			</Hidden>
 			<People />
