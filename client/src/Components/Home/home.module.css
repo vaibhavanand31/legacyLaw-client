@@ -2,6 +2,7 @@
 	height: 100%;
 	min-height: 93vh;
 	background-color: #eeeeee;
+	background-attachment: fixed;
 }
 
 .image {
@@ -18,7 +19,7 @@
 		min-height: 93vh;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
-		background-attachment: fixed;
+		background-attachment: scroll;
 		background-size: cover;
 		text-shadow: 1px 1px 10px black, 1px 1px 10px black, 1px 1px 10px black, 1px 1px 10px black;
 	}
@@ -186,5 +187,16 @@
 @media only screen and (min-width: 1024px) {
 	.careerInner {
 		padding-left: 200px;
+	}
+}
+
+@media screen and (max-device-width: 1024px) {
+	.contactUs {
+		background-attachment: scroll;
+	}
+}
+@media screen and (max-device-width: 1024px) {
+	.career {
+		background-attachment: scroll;
 	}
 }
