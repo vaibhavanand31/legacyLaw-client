@@ -20,12 +20,24 @@ function ContactUs() {
 				spacing={3}
 			>
 				<Grid item>
-					<Typography variant="h2">Here to help</Typography>
+					<Typography variant="h4">We are here for you</Typography>
 				</Grid>
 				<Grid item>
 					<Typography variant="body1">
-						With our unmatched national network of lawyers and consultants, we support our clients whenever
-						they need legal assistance.
+						With our unmatched network of lawyers and consultants, we support our clients whenever they need
+						any legal assistance.
+					</Typography>
+					<Typography variant="body2" style={{ padding: '10px 0px 5px 0px' }}>
+						HEAD OFFICE:
+					</Typography>
+					<Typography variant="body2" style={{ padding: '2px 0px' }}>
+						Monday - Friday 10:00 AM To 9:00 PM
+					</Typography>
+					<Typography variant="body2" style={{ padding: '2px 0px' }}>
+						Saturday Closed
+					</Typography>
+					<Typography variant="body2" style={{ padding: '2px 0px' }}>
+						Sunday - 12:00 AM To 9:00 PM
 					</Typography>
 				</Grid>
 				<Grid item>

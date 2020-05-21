@@ -39,11 +39,24 @@ function ClientTools() {
 				<div className={styles.upperLayout}>
 					<Paper elevation={3} className={styles.upperLayoutPaper}>
 						<div className={styles.decsriptionContainer}>
-							<Typography style={{ fontFamily: 'Lucida Console', fontSize: '1.5rem' }}>
+							<Typography style={{ fontFamily: 'Lucida Console', fontSize: '1.2rem' }}>
 								The Legacy Law
 							</Typography>
-							<Typography style={{ fontFamily: 'Lucida Console', fontSize: '1.8rem' }}>
-								Lets connect to our Lawyers to serve you.
+							<Typography style={{ fontFamily: 'Lucida Console', fontSize: '1.6rem' }}>
+								With our unmatched network of lawyers and consultants, we support our clients whenever
+								they need any legal assistance.
+							</Typography>
+							<Typography variant="body2" style={{ padding: '10px 0px 5px 0px' }}>
+								HEAD OFFICE:
+							</Typography>
+							<Typography variant="body2" style={{ padding: '2px 0px' }}>
+								Monday - Friday 10:00 AM To 9:00 PM
+							</Typography>
+							<Typography variant="body2" style={{ padding: '2px 0px' }}>
+								Saturday Closed
+							</Typography>
+							<Typography variant="body2" style={{ padding: '2px 0px' }}>
+								Sunday - 12:00 AM To 9:00 PM
 							</Typography>
 							{/* <Typography style={{ fontFamily: 'Lucida Console', fontSize: '1.2rem' }}>
 								"We try to make world a secure place to live."

@@ -12,22 +12,17 @@ import Career from './Career';
 function Home() {
 	return (
 		<div>
-			<Hidden smDown>
+			<Hidden mdDown>
 				<ArticleMainSmDown />
-				<People />
-				<LatestNews />
-				<ContactUs />
-				<LatestArticles />
-				<Career />
 			</Hidden>
-			<Hidden mdUp>
+			<Hidden lgUp>
 				<ArticleMainSmUp />
-				<People />
-				<LatestNews />
-				<ContactUs />
-				<LatestArticles />
-				<Career />
 			</Hidden>
+			<People />
+			<LatestNews />
+			<ContactUs />
+			<LatestArticles />
+			<Career />
 		</div>
 	);
 }

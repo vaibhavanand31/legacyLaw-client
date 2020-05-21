@@ -51,11 +51,15 @@ function ArticleMainSmDown() {
 				</Grid>
 			</Grid>
 			<Grid item>
-				<img
-					className={styles.image}
-					alt="Main Article"
-					src={mainArticle.news_image ? mainArticle.news_image : ''}
-				/>
+				<div className={styles.imageBox}>
+					<img
+						className={styles.image}
+						alt="Main Article"
+						src={
+							mainArticle.news_image ? mainArticle.news_image : require('../../images/bulletin-news.jpg')
+						}
+					/>
+				</div>
 			</Grid>
 		</Grid>
 	);

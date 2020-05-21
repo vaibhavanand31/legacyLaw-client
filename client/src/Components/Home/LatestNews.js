@@ -92,7 +92,7 @@ function LatestNews() {
 				</Hidden>
 			</Grid>
 			<div className={styles.latestNewsCards}>
-				<Grid container justifu="center" spacing={3}>
+				<Grid container justify="center" alignItems="center" spacing={3}>
 					{news.map((latestNews) => (
 						<Grid xs={12} sm={6} align="center" item key={latestNews.id}>
 							<NewsCard latestNews={latestNews} />

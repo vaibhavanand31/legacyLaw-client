@@ -34,16 +34,12 @@ function Expertise() {
 					</div>
 					<div className={styles.decsriptionContainer}>
 						<Typography variant="body1">
-							The Legacy Law is engaged in diverse areas of Law Practice which exclusively focuses on
-							extending its soulful services in handling an array of complex cases involving diverse and
-							complex matters related to Corporate Laws and Commercial Laws, Mergers, Acquisitions ,
-							Banking Laws, Family and Matrimonial Laws, Consumer Laws, Criminal Laws, Carrier Laws, Cyber
-							Security and Information Technology Law, Electricity Laws, Environmental Laws, Laws
-							governing different areas of trade and industry, Arbitration Laws, Insurance Laws,
-							Intellectual Property Laws, Labour and Industrial Laws, Land and Revenue Laws, Real
-							Estate/RERA and Property Laws and other general laws. The Firm also provides the Services of
-							Compliance and Due Diligence. The Legacy Law also extends its services for Drafting and
-							Vetting of all types of Contracts and Agreements.
+							The Legacy Law provides sophisticated guidance and legal counsel to its clients that face
+							complex environmental law problems. Our attorneys are at the top of the industry and are
+							well-positioned to help across the India resolve day-to-day and long-term challenges. Our
+							lawyers leverage extensive backgrounds and experience in industry, law and science to help
+							our clients’ achieve their most critical objectives. We are passionate about the work we do
+							and are well-recognized for our dynamic advocacy and unwavering dedication to our clients.
 						</Typography>
 					</div>
 				</Paper>

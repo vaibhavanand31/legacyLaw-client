@@ -144,7 +144,7 @@ export default function EmploymentApplication() {
 					</Grid>
 					<Grid item>
 						<Typography variant="h3" className={styles.careerSlogan}>
-							Make it to top together.
+							Make it to top <Hidden smDown>together</Hidden>
 						</Typography>
 						<Hidden smDown>
 							<Typography variant="h3" className={styles.careerSlogan}>
@@ -161,11 +161,13 @@ export default function EmploymentApplication() {
 			</section>
 			<section id="why-us" className={styles.careerWhyUs}>
 				<div className={styles.whyUsTitle}>
-					<Typography variant="h4">Why The Legacy Law</Typography>
+					<center>
+						<Typography variant="h4">Why The Legacy Law</Typography>
+					</center>
 				</div>
 				<div className={styles.whyUsrow}>
-					<Grid container direction="row" justify="space-between" alignItems="center">
-						<Grid item className={styles.whyUscol}>
+					<Grid container direction="row" justify="space-evenly" alignItems="center">
+						<Grid item className={styles.whyUscol} style={{ minWidth: '230px' }}>
 							<div className={styles.whyUscolSubHeading}>
 								<h3>What we do</h3>
 							</div>
@@ -183,42 +185,24 @@ export default function EmploymentApplication() {
 								<Grid>
 									<div className={styles.whyUsExpanded}>
 										<BackGroundPaper elevation={2} variant="outlined">
-											<Typography variant="body2">what we do description</Typography>
+											<Typography variant="body2">
+												The Legacy Law provides sophisticated guidance and legal counsel to its
+												clients that face complex environmental law problems. Our attorneys are
+												at the top of the industry and are well-positioned to help across the
+												India resolve day-to-day and long-term challenges. Our lawyers leverage
+												extensive backgrounds and experience in industry, law and science to
+												help our clients’ achieve their most critical objectives. We are
+												passionate about the work we do and are well-recognized for our dynamic
+												advocacy and unwavering dedication to our clients.
+											</Typography>
 										</BackGroundPaper>
 									</div>
 								</Grid>
 							)}
 						</Hidden>
-						<Grid item className={styles.whyUscol}>
+						<Grid item className={styles.whyUscol} style={{ minWidth: '230px' }}>
 							<div className={styles.whyUscolSubHeading}>
-								<h3>Culture and values</h3>
-							</div>
-							<div className={styles.whyUscolSubHeading}>
-								<Typography variant="subtitle2">It’s time to find common ground.</Typography>
-							</div>
-							<div className={styles.whyUsMore}>
-								<Button
-									className={classes.readMore}
-									onClick={() => handleReadMoreChange('cultureAndValues')}
-								>
-									Read More+
-								</Button>
-							</div>
-						</Grid>
-						<Hidden smUp>
-							{readMoreValue === 'cultureAndValues' && (
-								<Grid>
-									<div className={styles.whyUsExpanded}>
-										<BackGroundPaper elevation={2} variant="outlined">
-											<Typography variant="body2">cultureAndValues description</Typography>
-										</BackGroundPaper>
-									</div>
-								</Grid>
-							)}
-						</Hidden>
-						<Grid item className={styles.whyUscol}>
-							<div className={styles.whyUscolSubHeading}>
-								<h3>Pan India focus</h3>
+								<h3>Our Focus</h3>
 							</div>
 							<div className={styles.whyUscolSubHeading}>
 								<Typography variant="subtitle2">It’s time to make the move.</Typography>
@@ -237,7 +221,15 @@ export default function EmploymentApplication() {
 								<Grid>
 									<div className={styles.whyUsExpanded}>
 										<BackGroundPaper elevation={2} variant="outlined">
-											<Typography variant="body2">panIndiaFocus description</Typography>
+											<Typography variant="body2">
+												The Legacy Law is a law firm focused exclusively on meeting the needs of
+												our clients. Our attorneys understand the diverse legal, business and
+												financial issues our clients face and we immerse ourselves in their
+												businesses so that we can anticipate, manage and mitigate risks and
+												challenges that may be on the horizon. We view our role as helping our
+												clients and their in-house counsel successfully navigate the complex
+												regulatory system that impacts their day-to-day and long-term go
+											</Typography>
 										</BackGroundPaper>
 									</div>
 								</Grid>
@@ -248,52 +240,81 @@ export default function EmploymentApplication() {
 						<div className={styles.whyUsExpanded}>
 							{readMoreValue === 'whatWeDo' && (
 								<BackGroundPaper elevation={2} variant="outlined">
-									<Typography variant="body2">what we do description</Typography>
-								</BackGroundPaper>
-							)}
-							{readMoreValue === 'cultureAndValues' && (
-								<BackGroundPaper elevation={2} variant="outlined">
-									<Typography variant="body2">cultureAndValues description</Typography>
+									<Typography variant="body2">
+										The Legacy Law provides sophisticated guidance and legal counsel to its clients
+										that face complex environmental law problems. Our attorneys are at the top of
+										the industry and are well-positioned to help across the India resolve day-to-day
+										and long-term challenges. Our lawyers leverage extensive backgrounds and
+										experience in industry, law and science to help our clients’ achieve their most
+										critical objectives. We are passionate about the work we do and are
+										well-recognized for our dynamic advocacy and unwavering dedication to our
+										clients.
+									</Typography>
 								</BackGroundPaper>
 							)}
 							{readMoreValue === 'panIndiaFocus' && (
 								<BackGroundPaper elevation={2} variant="outlined">
-									<Typography variant="body2">panIndiaFocus description</Typography>
+									<Typography variant="body2">
+										The Legacy Law is a law firm focused exclusively on meeting the needs of our
+										clients. Our attorneys understand the diverse legal, business and financial
+										issues our clients face and we immerse ourselves in their businesses so that we
+										can anticipate, manage and mitigate risks and challenges that may be on the
+										horizon. We view our role as helping our clients and their in-house counsel
+										successfully navigate the complex regulatory system that impacts their
+										day-to-day and long-term go
+									</Typography>
 								</BackGroundPaper>
 							)}
 						</div>
 					</Hidden>
 				</div>
 			</section>
-			<section ref={contactRef} className={styles.applyNow}>
-				<Typography variant="h4"> Apply Now</Typography>
-				<Typography variant="caption" style={{ color: 'blue' }}>
-					{errorMessage}
-				</Typography>
-				<form className={styles.applyNowForm} noValidate autoComplete="off" onSubmit={handelApplYNowSubmit}>
-					<FormControl className={classes.formControl}>
-						<TextField
-							id="fname"
-							label="First Name"
-							required
-							variant="outlined"
-							type="text"
-							{...bindFname}
-						/>
-					</FormControl>
-					<FormControl className={classes.formControl}>
-						<TextField
-							id="lname"
-							label="Last Name"
-							required
-							variant="outlined"
-							type="text"
-							{...bindLname}
-						/>
-					</FormControl>
-					<FormControl className={classes.formControl}>
-						<TextField id="email" label="Email" required variant="outlined" type="text" {...bindEmail} />
-					</FormControl>
+			<section ref={contactRef} className={styles.applyNow} style={{ textAlign: 'center' }}>
+				<center>
+					<Typography variant="h4"> Apply Now</Typography>
+					<Typography variant="caption" style={{ color: 'blue' }}>
+						{errorMessage}
+					</Typography>
+				</center>
+				<form
+					style={{ position: 'relative', display: 'inline-block' }}
+					className={styles.applyNowForm}
+					noValidate
+					autoComplete="off"
+					onSubmit={handelApplYNowSubmit}
+				>
+					<div>
+						<FormControl className={classes.formControl}>
+							<TextField
+								id="fname"
+								label="First Name"
+								required
+								variant="outlined"
+								type="text"
+								{...bindFname}
+							/>
+						</FormControl>
+						<FormControl className={classes.formControl}>
+							<TextField
+								id="lname"
+								label="Last Name"
+								required
+								variant="outlined"
+								type="text"
+								{...bindLname}
+							/>
+						</FormControl>
+						<FormControl className={classes.formControl}>
+							<TextField
+								id="email"
+								label="Email"
+								required
+								variant="outlined"
+								type="text"
+								{...bindEmail}
+							/>
+						</FormControl>
+					</div>
 					<div>
 						<FormControl className={classes.formControl}>
 							<TextField
@@ -337,7 +358,7 @@ export default function EmploymentApplication() {
 								aria-describedby="component-helper-text"
 							/>
 							<label htmlFor="resume">
-								<Button variant="outlined" component="span">
+								<Button variant="outlined">
 									<span style={{ color: '#777' }}>Upload CV</span>
 								</Button>
 							</label>

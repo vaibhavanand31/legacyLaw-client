@@ -29,7 +29,9 @@ function ArticleMainSmUp() {
 		<Grid
 			className={styles.mainArticle}
 			style={{
-				backgroundImage: `url(${mainArticle.news_image ? mainArticle.news_image : ''})`
+				backgroundImage: `url(${mainArticle.news_image
+					? mainArticle.news_image
+					: require('../../images/bulletin-news.jpg')})`
 			}}
 			container
 			direction="row"

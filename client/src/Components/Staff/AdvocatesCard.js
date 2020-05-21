@@ -13,7 +13,7 @@ import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
-	latestCard: { maxWidth: 345 },
+	latestCard: { width: 345, height: 520 },
 	latestCardMedia: {
 		height: '300px'
 	}
@@ -48,7 +48,11 @@ function AdvocatesCard(people) {
 						{people.people.designation ? people.people.designation : ''}
 					</Typography>
 					<Typography variant="body2" color="textSecondary" component="p">
-						{people.people.short_description ? people.people.short_description : ''}
+						{people.people.short_description ? (
+							people.people.short_description.substring(0, 160) + '...'
+						) : (
+							''
+						)}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
